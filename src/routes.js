@@ -1,12 +1,13 @@
 const express = require('express');
 const multer = require('multer');
+const uploadConfig = require('./config/upload')
 
 //Middleware to import the routes and inject.
 const routes = express.Router();
 const UserController = require('./controllers/UserController');
 const EventController = require('./controllers/EventController');
 
-const uploadConfig = require('./config/upload')
+
 //We pass specific config to multer saying ok I want to upload the files this way
 const upload = multer(uploadConfig);
 
@@ -14,6 +15,7 @@ routes.get("/", (req,res)=>{
   res.send("Hola Mundo")
 })
 //Event
+routes.get("/event/:eventId", EventController.getElementById)
 /*It will grab the file from the frontentd
 Will create a folder called files and save the image
 It will pass the thumbnail property to the event controller
@@ -34,7 +36,7 @@ routes.post("/event", upload.single("thumbnail"), EventController.createEvent)
 
 //USER
 routes.post('/register', UserController.createUser)
-//app.post('/register', RegisterController.store())
+//app.post('/register', RegisterController.store)
 routes.get('/user/:userId', UserController.getUserById)
 
 module.exports = routes

@@ -13,9 +13,7 @@ const User = require('../models/User');
 module.exports = {
   async createEvent (req,res){
     const { title, description, price } = req.body;
-    console.log(req.headers);
     const { user_id } = req.headers;
-    console.log(req.file);
     const { filename } = req.file;
 
     const user = await User.findById(user_id);
@@ -36,5 +34,19 @@ module.exports = {
     })
 
     return res.json(event);
+  },
+  async getElementById(req,res){
+    const { eventId } = req.params;
+
+    try{
+      //Find the event by its ID in mongo
+      const event = await Event.findById(eventId);
+      if(event){
+        return res.json(event)
+      }
+    }catch(e){
+      return res.status(400).json({message : "EventId doesn't exist!"})
+    }
+    
   }
 }
