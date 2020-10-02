@@ -2,8 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');//Allows us to make requests from different devices
-const app = express();
 const UserController = require('./controllers/UserController');
+const app = express();
 
 const PORT = process.env.PORT || 8080;
 
