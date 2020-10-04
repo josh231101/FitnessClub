@@ -12,7 +12,7 @@ const User = require('../models/User');
 
 module.exports = {
   async createEvent (req,res){
-    const { title, description, price } = req.body;
+    const { title, description, price, sport } = req.body;
     const { user_id } = req.headers;
     const { filename } = req.file;
 
@@ -27,6 +27,7 @@ module.exports = {
     const event = await Event.create({
       title,
       description,
+      sport,
       price : parseFloat(price),
       user : user_id,
       //thumbnail is just ex-> josue-124124124.jpg (The name of the pic in the server)
@@ -47,6 +48,25 @@ module.exports = {
     }catch(e){
       return res.status(400).json({message : "EventId doesn't exist!"})
     }
-    
-  }
+
+  },
+  async getAllEvents(req,res){
+    const { sport } = req.params;
+    //If the query is undefined pass an empty object
+    try{
+
+      if(sport){
+        const events = await Event.find({sport : sport})
+        return res.json(events)
+      }
+      //Passing {} we are saying to get all documents
+      const events = await Event.find({});
+      if(events){
+        return res.json(events)
+      }
+    }catch(e){
+      return res.status(400).json({message : "We don't have any events yet!"})
+    }
+
+  },
 }
