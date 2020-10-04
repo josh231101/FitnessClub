@@ -6,18 +6,21 @@ const uploadConfig = require('./config/upload');
 const routes = express.Router();
 const UserController = require('./controllers/UserController');
 const EventController = require('./controllers/EventController');
-
+const DashboardController = require('./controllers/DashboardController');
 
 //We pass specific config to multer saying ok I want to upload the files this way
 const upload = multer(uploadConfig);
 
-routes.get("/", (req,res)=>{
-  res.send("Hola Mundo")
+routes.get("/status", (req,res)=>{
+  res.status(200);
 });
+
+//DASHBOARD
+routes.get("/dashboard", DashboardController.getAllEvents);
+routes.get("/dashboard/:sport", DashboardController.getAllEvents);
+routes.get("/event/:eventId", DashboardController.getEventById);
+
 //EVENT
-routes.get("/events", EventController.getAllEvents);
-routes.get("/events/:sport", EventController.getAllEvents);
-routes.get("/event/:eventId", EventController.getEventById);
 routes.post("/event", upload.single("thumbnail"), EventController.createEvent);
 routes.delete("/event/:eventId", EventController.delete);
 
