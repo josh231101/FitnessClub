@@ -21,6 +21,8 @@ module.exports = {
         const userRepsonse = {
           _id : user._id,
           email : user.email,
+          firstName : user.firstName,
+          lastName : user.lastName,
         }
         return res.status(200).json(userResponse)
       }else{
