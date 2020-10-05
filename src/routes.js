@@ -7,13 +7,16 @@ const routes = express.Router();
 const UserController = require('./controllers/UserController');
 const EventController = require('./controllers/EventController');
 const DashboardController = require('./controllers/DashboardController');
-
+const LoginController = require('./controllers/LoginController');
 //We pass specific config to multer saying ok I want to upload the files this way
 const upload = multer(uploadConfig);
 
 routes.get("/status", (req,res)=>{
   res.status(200);
 });
+//TODO : Login controller
+routes.post("/login", LoginController.store);
+// TODO: 
 
 //DASHBOARD
 routes.get("/dashboard", DashboardController.getAllEvents);

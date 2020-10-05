@@ -38,5 +38,5 @@ module.exports = {
       return res.status(400).json({message : "We dont have any event with the ID"})
     }
   },
-  
+
 }
