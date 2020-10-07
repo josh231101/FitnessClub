@@ -8,6 +8,7 @@ const UserController = require('./controllers/UserController');
 const EventController = require('./controllers/EventController');
 const DashboardController = require('./controllers/DashboardController');
 const LoginController = require('./controllers/LoginController');
+const RegistrationController = require('./controllers/RegistrationController');
 //We pass specific config to multer saying ok I want to upload the files this way
 const upload = multer(uploadConfig);
 
@@ -16,7 +17,14 @@ routes.get("/status", (req,res)=>{
 });
 //TODO : Login controller
 routes.post("/login", LoginController.store);
-// TODO: 
+
+// TODO: Subscribe controller
+//get a Registration by // IDEA:
+// Registration ApprovalController
+// Registration RejectionController
+
+//Registration
+routes.post("/registration/:eventId", RegistrationController.create);
 
 //DASHBOARD
 routes.get("/dashboard", DashboardController.getAllEvents);

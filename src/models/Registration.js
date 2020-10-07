@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 
 const RegistrationSchema = mongoose.Schema({
-  data : String,
+  date : String,
   approved : Boolean,
-  sport : String,
   user : {
     type : mongoose.Schema.Type.ObjectId,
     ref : "User"
