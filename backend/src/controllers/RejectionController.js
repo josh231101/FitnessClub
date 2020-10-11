@@ -1,4 +1,4 @@
-const Registration = require('../models/registration');
+const Registration = require('../models/Registration');
 
 module.exports= {
   async rejection(req,res){

@@ -18,17 +18,17 @@ const upload = multer(uploadConfig);
 routes.get("/status", (req,res)=>{
   res.status(200);
 });
+//  .:LOGIN:.
+routes.post("/login", LoginController.store);
 
 //  .:REGISTRATION:.
 //Create a Registration
 routes.post("/registration/:eventId", RegistrationController.create);
 //Get registration by Id -> See the registration data and status
 routes.get("/registration/:registration_id", RegistrationController.getRegistration);
-routes.post("/geistration/:registration_id/approvals", ApprovalController.approval);
-routes.post("/geistration/:registration_id/rejections", RejectionController.rejection);
+routes.post("/registration/:registration_id/approvals", ApprovalController.approval);
+routes.post("/registration/:registration_id/rejections", RejectionController.rejection);
 
-//  .:LOGIN:.
-routes.post("/login", LoginController.store);
 
 //  .:DASHBOARD:.
 routes.get("/dashboard", DashboardController.getAllEvents);
