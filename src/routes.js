@@ -9,33 +9,37 @@ const EventController = require('./controllers/EventController');
 const DashboardController = require('./controllers/DashboardController');
 const LoginController = require('./controllers/LoginController');
 const RegistrationController = require('./controllers/RegistrationController');
+const ApprovalController = require("./controllers/ApprovalController");
+const RejectionController = require("./controllers/RejectionController");
+
 //We pass specific config to multer saying ok I want to upload the files this way
 const upload = multer(uploadConfig);
 
 routes.get("/status", (req,res)=>{
   res.status(200);
 });
-//TODO : Login controller
+
+//  .:REGISTRATION:.
+//Create a Registration
+routes.post("/registration/:eventId", RegistrationController.create);
+//Get registration by Id -> See the registration data and status
+routes.get("/registration/:registration_id", RegistrationController.getRegistration);
+routes.post("/geistration/:registration_id/approvals", ApprovalController.approval);
+routes.post("/geistration/:registration_id/rejections", RejectionController.rejection);
+
+//  .:LOGIN:.
 routes.post("/login", LoginController.store);
 
-// TODO: Subscribe controller
-//get a Registration by // IDEA:
-// Registration ApprovalController
-// Registration RejectionController
-
-//Registration
-routes.post("/registration/:eventId", RegistrationController.create);
-
-//DASHBOARD
+//  .:DASHBOARD:.
 routes.get("/dashboard", DashboardController.getAllEvents);
 routes.get("/dashboard/:sport", DashboardController.getAllEvents);
 routes.get("/event/:eventId", DashboardController.getEventById);
 
-//EVENT
+//  .:EVENTS:.
 routes.post("/event", upload.single("thumbnail"), EventController.createEvent);
 routes.delete("/event/:eventId", EventController.delete);
 
-//USER
+//  .:USER:.
 routes.post('/register', UserController.createUser);
 //app.post('/register', RegisterController.store)
 routes.get('/user/:userId', UserController.getUserById);
