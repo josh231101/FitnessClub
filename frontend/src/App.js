@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import Login from './pages/Login/';
-import Dashboard from './pages/Dashboard/';
+import Routes from './routes';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container} from 'reactstrap'; 
+
 function App() {
   return (
-    <div className="App">
-      <Login/>
-      <Dashboard/>
-    </div>
+    <Container>
+      <h1>Sport's App</h1>
+      <Routes/>
+    </Container>
   );
 }
 
