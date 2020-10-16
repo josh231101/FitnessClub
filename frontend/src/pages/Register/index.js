@@ -2,9 +2,11 @@ import React, {useState} from 'react';
 import api from '../../services/api';
 import { Container, Button, Form, FormGroup, Input } from 'reactstrap';
 
-function Login({history}) {
+function Register({history}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
 
     const handleSubmit = async evt =>{
         evt.preventDefault();
@@ -12,7 +14,7 @@ function Login({history}) {
         console.log(password);
 
         //The baseUrl is explicit, as first argument we pass the route to post, second argument an object with the info
-        const response = await api.post('/login', { email, password })
+        const response = await api.post('/user/register', { email, password, firstName, lastName })
         console.log(response)
         console.log(response.data)
         //If the could login, we can get the data,
@@ -30,13 +32,19 @@ function Login({history}) {
 
     return (
         <Container>
-            <h2>Login</h2> 
-            <p>Please <strong>Login</strong> into your account</p>
-            <Form inline onSubmit={handleSubmit}>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+            <h2>Register</h2> 
+            <p>Create a new account</p>
+            <Form inline className="w-100" onSubmit={handleSubmit}>
+                <FormGroup className="w-100 mb-2 text-xl-center">
+                <Input className="" type="text" name="firstName" id="firstName" placeholder="Your First Name" onChange={evt => setFirstName(evt.target.value)}/>
+                </FormGroup>
+                <FormGroup className="w-100 mb-2 ">
+                <Input type="text" name="lastName" id="lastName" placeholder="Your Last Name" onChange={evt => setLastName(evt.target.value)}/>
+                </FormGroup>
+                <FormGroup className="w-100 mb-2">
                 <Input type="email" name="email" id="exampleEmail" placeholder="Your Email" onChange={evt => setEmail(evt.target.value)}/>
                 </FormGroup>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                <FormGroup className="w-100 mb-2">
                 <Input type="password" name="password" id="examplePassword" placeholder="Your Password" onChange={evt => setPassword(evt.target.value)}/>
                 </FormGroup>
                 <Button>Submit</Button>
@@ -45,4 +53,4 @@ function Login({history}) {
     )
 }
 
-export default Login
+export default Register

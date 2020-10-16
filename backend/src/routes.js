@@ -40,7 +40,7 @@ routes.post("/event", upload.single("thumbnail"), EventController.createEvent);
 routes.delete("/event/:eventId", EventController.delete);
 
 //  .:USER:.
-routes.post('/register', UserController.createUser);
+routes.post('/user/register', UserController.createUser);
 //app.post('/register', RegisterController.store)
 routes.get('/user/:userId', UserController.getUserById);
 

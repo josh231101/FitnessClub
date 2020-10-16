@@ -19,7 +19,12 @@ module.exports = {
           password : hashedPassword,
         });
         //This returns a complete JSON of the typical MongoDb object
-        return res.json(user)
+        return res.json({
+          _id : user._id,
+          email : user.email,
+          firstName : user.firstName,
+          lastName : user.lastName,
+        })
       }
       //If there is a user send a 400 http status and a message
       return res.status(400).json({
