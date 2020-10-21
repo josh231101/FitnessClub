@@ -8,12 +8,10 @@ function Login({history}) {
 
     const handleSubmit = async evt =>{
         evt.preventDefault();
-        console.log(email);
-        console.log(password);
 
         //The baseUrl is explicit, as first argument we pass the route to post, second argument an object with the info
         const response = await api.post('/login', { email, password })
-        
+
         //If the could login, we can get the data,
         const userId = response.data._id || false;
 
