@@ -1,7 +1,6 @@
 
-# IESTUDEVS
-This is a blog about IEST students in software and digital engineers! The site was created in bootstrap.
-We hope you like it!
+# FITNESS CLUB FRONT-END
+Welcome to the MERN Fitness Club. This is the beautful Front-End I've been working on. Let's see all of it :fire:
 
 ## Dev tools
 Open your temrinal a hit the command
