@@ -39,12 +39,20 @@ function EventsPage() {
         
         try{
             await api.post('/event', eventData, {headers : {user_id}})
-        
+            clear();
         }catch(e){
             alert(e)
         }
+        
+        
     }
-
+    const clear = () => {
+        setDescription('')
+        setPrice('')
+        setSport('')
+        setPrice('')
+        setThumbnail(null)
+    }
     return (
         <Container>
             <h1>Create your own event</h1>
