@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import api from '../../services/api';
 import Event from '../../components/Event'
+import { CardWrapper } from './DashboardElements';
 
 function Dashboard() {
     const [events, setEvents] = useState([])
@@ -21,6 +22,7 @@ function Dashboard() {
     return (
         <div>
             All of our events!
+            <CardWrapper>
             {events.map((event) => (
                 <Event
                     imageUrl = {event.thumbnail_url}
@@ -31,6 +33,7 @@ function Dashboard() {
                     
                 />
             ))}
+            </CardWrapper>
         </div>
     )}
 export default Dashboard
