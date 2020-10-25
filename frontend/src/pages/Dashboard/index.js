@@ -3,7 +3,7 @@ import api from '../../services/api';
 import Event from '../../components/Event'
 import { CardWrapper } from './DashboardElements';
 
-function Dashboard() {
+const Dashboard = () =>{
     const [events, setEvents] = useState([])
     
     useEffect(() => {

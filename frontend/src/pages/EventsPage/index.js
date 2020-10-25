@@ -10,7 +10,8 @@ import {Container, Button, Form, FormGroup,Input, Label} from 'reactstrap';
         date : Date,
 
     */
-function EventsPage() {
+
+const EventsPage = () => {
     const user_id = localStorage.getItem('user');
     const [title, setTitle ] = useState('');
     const [description, setDescription ] = useState('');

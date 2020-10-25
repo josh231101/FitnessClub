@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import api from '../../services/api';
 import { Container, Button, Form, FormGroup, Input } from 'reactstrap';
 
-function Register({history}) {
+const Register = ({history}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
