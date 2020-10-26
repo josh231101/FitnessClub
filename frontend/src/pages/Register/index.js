@@ -46,6 +46,7 @@ const Register = ({history}) => {
                 <Input type="password" name="password" id="examplePassword" placeholder="Your Password" onChange={evt => setPassword(evt.target.value)}/>
                 </FormGroup>
                 <Button>Submit</Button>
+                <Button onClick={()=> history.push("/")}>Login Instead?</Button>
         </Form>
       </Container>
     )

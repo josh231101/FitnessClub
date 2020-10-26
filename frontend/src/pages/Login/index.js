@@ -31,12 +31,13 @@ const Login = ({history}) =>{
             <p>Please <strong>Login</strong> into your account</p>
             <Form inline onSubmit={handleSubmit}>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                <Input type="email" name="email" id="exampleEmail" placeholder="Your Email" onChange={evt => setEmail(evt.target.value)}/>
+                <Input required type="email" name="email" id="exampleEmail" placeholder="Your Email" onChange={evt => setEmail(evt.target.value)}/>
                 </FormGroup>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                <Input type="password" name="password" id="examplePassword" placeholder="Your Password" onChange={evt => setPassword(evt.target.value)}/>
+                <Input required type="password" name="password" id="examplePassword" placeholder="Your Password" onChange={evt => setPassword(evt.target.value)}/>
                 </FormGroup>
                 <Button>Submit</Button>
+                <Button onClick={()=> history.push('/register')}>Not an user? Register</Button>
         </Form>
       </Container>
     )
