@@ -9,7 +9,10 @@
   transition: all 1s ease-in-out;
   animation: fadeIn 1000ms;
   position: sticky;
+  top: 0;
   background-color: transparent;
+  margin-top: -80px;
+  z-index: 100;
 }
 .navbar__title {
   font-size: 2rem;
@@ -26,17 +29,24 @@ span {
   text-decoration: none;
   font-size: 1.2rem;
   cursor: pointer;
+  color: #fff;
 }
 .navbar__links a:hover {
-  color: red;
+  color: var(--global-company-color);
 }
 
 .navbar__links a:last-of-type {
-  margin-right: 0;
-  padding: 0.8rem 1rem;
-  background-color: var(--global-company-color);
-  border-radius: 0.4rem;
+  border-radius: 4px;
+  background: var(--global-company-color);
+  width: fit-content;
+  padding: 8px 16px;
   color: white;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  z-index: 10;
 }
 
 /*Animations*/
