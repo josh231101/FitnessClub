@@ -6,7 +6,17 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <header></header>
+      <header class="mainHeader">
+        <div class="mainHeader__wrapper">
+          <h1>
+            STEP UP YOUR
+            <br />
+            <span>FITNESS CHALLENGE</span>
+            <br />
+            WITH US
+          </h1>
+        </div>
+      </header>
     </>
   );
 };

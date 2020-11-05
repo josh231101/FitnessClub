@@ -1,0 +1,50 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 968px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 80px;
+  transition: all 1s ease-in-out;
+  animation: fadeIn 1000ms;
+  position: sticky;
+  background-color: transparent;
+}
+.navbar__title {
+  font-size: 2rem;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+span {
+  color: var(--global-company-color);
+}
+
+.navbar__links a {
+  margin-left: 1.4rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.navbar__links a:hover {
+  color: red;
+}
+
+.navbar__links a:last-of-type {
+  margin-right: 0;
+  padding: 0.8rem 1rem;
+  background-color: var(--global-company-color);
+  border-radius: 0.4rem;
+  color: white;
+}
+
+/*Animations*/
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
