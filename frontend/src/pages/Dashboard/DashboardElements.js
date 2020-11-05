@@ -1,8 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CardWrapper = styled.div`
-
-    display : flex;
-    flex-wrap : wrap;
-    flex-direction : start;
-`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: start;
+`;
