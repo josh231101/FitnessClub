@@ -5,7 +5,7 @@ import { Link as LinkS } from "react-scroll";
 const HeroSection = () => {
   return (
     <header className="mainHeader">
-      <div className="mainHeader__wrapper">
+      <div className="container mainHeader__wrapper">
         <div className="mainHeader__wrapper__grid">
           <h1 className="mainHeader__wrapper__grid__text">
             JOIN THE BEST
