@@ -18,3 +18,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+img {
+  width: 100%;
+}
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 1rem 0;
+}
+p {
+  font-size: 1.1rem;
+}
