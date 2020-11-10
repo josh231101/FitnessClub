@@ -1,4 +1,4 @@
-.mainWrapper {
+.m-3 {
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
@@ -11,7 +11,7 @@
   flex-basis: calc(50%);
 }
 .about__img img {
-  border-radius: 1rem;
+  border-radius: 0.4rem;
 }
 .about__text {
   flex-basis: calc(50% - 2rem);
