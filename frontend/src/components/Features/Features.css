@@ -8,8 +8,8 @@
   text-align: center;
 }
 .feature__img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 .features {
   display: flex;

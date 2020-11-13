@@ -1,0 +1,6 @@
+.testimonials {
+  background-image: url(../../images/testimonials.jpg);
+  background-size: cover;
+  background-position: center center;
+  height: 400px;
+}
