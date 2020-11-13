@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import HeroSection from "../../components/HeroSection";
 import Navbar from "../../components/Navbar";
 import Main from "../../components/Main";
+import Features from "../../components/Features";
 const Home = () => {
   return (
     <>
@@ -11,6 +12,7 @@ const Home = () => {
       {/* MAIN ABOUT */}
       <Main />
       {/* FEATURES */}
+      <Features />
       {/* TESTIMONIALS */}
       {/* BLOG ENTRIES */}
       {/*  */}
