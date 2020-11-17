@@ -29,8 +29,14 @@ h2 {
   font-weight: 500;
   margin: 1rem 0;
 }
+h3 {
+  font-size: 2rem;
+}
 p {
   font-size: 1.1rem;
+}
+blockquote {
+  font-size: 2rem;
 }
 /* UTILS */
 .btn {
@@ -55,4 +61,7 @@ p {
 .secondary {
   background: white;
   color: var(--global-company-color);
+}
+.p-3 {
+  padding: 3rem 0;
 }

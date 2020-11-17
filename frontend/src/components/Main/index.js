@@ -4,8 +4,8 @@ import "./Main.css";
 
 const Main = () => {
   return (
-    <main className="container m-3">
-      <div className="mainWrapper__about">
+    <main className="">
+      <div className="container mainWrapper__about p-3 ">
         <div className="about__img">
           <img
             loading="lazy"
