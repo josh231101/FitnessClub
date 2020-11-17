@@ -1,0 +1,18 @@
+.blog {
+}
+.callto {
+  background-image: -webkit-linear-gradient(
+    65deg,
+    #fd6a4c 50%,
+    var(--global-company-color) 50%
+  );
+
+  color: white;
+}
+.callto__wrapper {
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

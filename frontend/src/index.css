@@ -32,3 +32,27 @@ h2 {
 p {
   font-size: 1.1rem;
 }
+/* UTILS */
+.btn {
+  border-radius: 6px;
+  white-space: nowrap;
+  width: fit-content;
+  padding: 12px 30px;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  font-weight: 700;
+}
+.primary {
+  background: var(--global-company-color);
+  color: white;
+}
+.secondary {
+  background: white;
+  color: var(--global-company-color);
+}

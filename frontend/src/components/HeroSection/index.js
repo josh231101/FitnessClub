@@ -18,7 +18,7 @@ const HeroSection = () => {
             New events every week! Challenge yourself, you mind, your family and
             friends. Get to know us in the button below
           </p>
-          <LinkS className="mainHeader__wrapper__grid__btn">
+          <LinkS className="btn primary">
             About Us <MdArrowForward />
           </LinkS>
         </div>
