@@ -3,4 +3,19 @@
   background-size: cover;
   background-position: center center;
   height: 400px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.testimonials__wrapper {
+  padding: 2rem;
+}
+.testimonials__center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+}
+.testimonials__center p::before {
+  content: "-";
 }

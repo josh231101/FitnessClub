@@ -1,27 +1,52 @@
 import React from "react";
 import { ImQuotesLeft } from "react-icons/im";
 import "./Testimonials.css";
-import Carousel from "@brainhubeu/react-carousel";
-import "@brainhubeu/react-carousel/lib/style.css";
-import imageOne from "../../images/aboutus.jpg";
+import Slider from "infinite-react-carousel";
+import "./Testimonials.css";
 
 const Testimonials = () => {
+  const settings = {
+    className: "container",
+    autoplay: true,
+    adaptiveHeight: true,
+    arrows: false,
+  };
   return (
     <section className="testimonials">
-      <div className="testimonials__wrapper">
-        <ImQuotesLeft class="wh" />
-        <blockquote>
-          ME FASCINA ESTE LUGAR DE VERDAD NO PODRÍA ESTAR MUCHO MÁS CONTENTA DE
-          LO QUE HE ENCONTRADO AQUÍ ME GUSTA DEMASIADO LA VERDA LO RECOMEINDO AL
-          100
-        </blockquote>
-        <p>Random User</p>
-      </div>
-      <Carousel plugins={["arrows"]}>
-        <img src={imageOne} />
-        <img src={imageOne} />
-        <img src={imageOne} />
-      </Carousel>
+      <Slider dots {...settings}>
+        <div className="testimonials__center">
+          <ImQuotesLeft class="wh" />
+          <blockquote>
+            Recomendado al 100%. Las instalaciones están de lujo y el
+            tratamiento médico es de buena calidad
+          </blockquote>
+          <p>Random User</p>
+        </div>
+        <div className="testimonials__center">
+          <ImQuotesLeft class="wh" />
+          <blockquote>
+            Un lugar para todas las edades, los eventos son definitivamente lo
+            máximo, vale la pena.
+          </blockquote>
+          <p>Random User</p>
+        </div>
+        <div className="testimonials__center">
+          <ImQuotesLeft class="wh" />
+          <blockquote>
+            Un lugar muy agradable, los eventos están increibles! Únete a este
+            fitness club
+          </blockquote>
+          <p>Random User</p>
+        </div>
+        <div className="testimonials__center">
+          <ImQuotesLeft class="wh" />
+          <blockquote>
+            Me encanta este lugar, tiene precios muy accesibles y el equipo sin
+            duda está increible
+          </blockquote>
+          <p>Random User</p>
+        </div>
+      </Slider>
     </section>
   );
 };
