@@ -4,6 +4,8 @@
   display: flex;
 }
 .blog {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 .callto {
   background-image: -webkit-linear-gradient(
@@ -16,8 +18,6 @@
 }
 .callto__wrapper {
   width: 100%;
-  height: 8rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }

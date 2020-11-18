@@ -5,12 +5,15 @@ import Navbar from "../../components/Navbar";
 import Main from "../../components/Main";
 import Features from "../../components/Features";
 import Testimonials from "../../components/Testimonials/Testimonials";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import "./Home.css";
 import Service from "../../components/Service";
 import ImageCardio from "../../images/cardio.jpg";
 import ImageRun from "../../images/run.jpg";
 import ImageTrainer from "../../images/trainer.jpg";
+import ArticleOne from "../../images/post.jpg";
+import ArticleTwo from "../../images/post2.jpg";
+import ArticleThree from "../../images/post3.jpg";
+import Article from "../../components/Article/Article";
 
 const Home = () => {
   return (
@@ -28,10 +31,20 @@ const Home = () => {
 
       {/* BLOG ENTRIES */}
       <section className="container blog">
-        <h2>Read Our Fitness Club</h2>
-        <div className="blog-entries">
-          <article></article>
-          <article></article>
+        <h2>Read Our Fitness Blog</h2>
+        <div className="blog__entries">
+          <Article
+            bgImg={ArticleOne}
+            title="How to create your fitness routine"
+          />
+          <Article
+            bgImg={ArticleTwo}
+            title="Living a healthy lifestyle is easy"
+          />
+          <Article
+            bgImg={ArticleThree}
+            title="Marathon Event rocked last sunday"
+          />
         </div>
       </section>
 
