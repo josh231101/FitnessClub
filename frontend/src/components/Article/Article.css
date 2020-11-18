@@ -3,12 +3,8 @@
   height: 24rem;
   position: relative;
   display: flex;
-<<<<<<< HEAD
   flex-direction: column;
   justify-content: flex-end;
-=======
-  justify-content: start;
->>>>>>> c2e23ab1e1d00ca8919335ed85318a0d5dde2419
   align-items: flex-end;
   padding: 2rem;
   box-sizing: border-box;
@@ -27,15 +23,12 @@
 }
 .article__title {
   color: white;
-<<<<<<< HEAD
   margin: 1rem 0;
   z-index: 2;
 }
 .article__author {
   margin: 0;
   color: whitesmoke;
-=======
->>>>>>> c2e23ab1e1d00ca8919335ed85318a0d5dde2419
   z-index: 2;
 }
 
