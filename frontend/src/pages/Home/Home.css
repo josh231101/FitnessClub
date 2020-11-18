@@ -13,7 +13,7 @@
     #fd6a4c 50%,
     var(--global-company-color) 50%
   );
-
+  margin-bottom: 0;
   color: white;
 }
 .callto__wrapper {
