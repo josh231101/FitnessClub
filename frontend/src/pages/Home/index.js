@@ -14,6 +14,7 @@ import ArticleOne from "../../images/post.jpg";
 import ArticleTwo from "../../images/post2.jpg";
 import ArticleThree from "../../images/post3.jpg";
 import Article from "../../components/Article/Article";
+import { Link as LinkR } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -54,7 +55,9 @@ const Home = () => {
       <div className="callto">
         <section className="container callto__wrapper">
           <h2>Ready to get fit?</h2>
-          <button className="btn secondary">Our Events!</button>
+          <LinkR to="/dashboard" className="btn secondary">
+            Our Events!
+          </LinkR>
         </section>
       </div>
 
