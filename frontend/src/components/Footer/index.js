@@ -5,9 +5,9 @@ const Footer = () => {
   const date = new Date().getFullYear();
   return (
     <footer>
-      <div className="footer__wrapper ">
-        <div className="footer__wrapper__top">
-          <div className="footer__wrapper__top-item">
+      <div className="footer-wrapper">
+        <div className="footer-wrapper__top">
+          <div className="footer-wrapper__top-item">
             <div className="item__wrapper">
               <LinkR class="navbar__title" to="/">
                 Fit<span>Club</span>
@@ -25,7 +25,7 @@ const Footer = () => {
               <a href="#">Terms & Conditions</a>
             </div>
           </div>
-          <div className="footer__wrapper__top-item">
+          <div className="footer-wrapper__top-item">
             <div className="item__wrapper">
               <h4>Fitness Club</h4>
               <a href="#">Pricing</a>
@@ -43,7 +43,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="copyright">
+        <div className="footer-wrapper__copyright">
           <p>&copy; All Rights Reserved {date}</p>
         </div>
       </div>

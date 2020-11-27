@@ -14,6 +14,7 @@
     var(--global-company-color) 50%
   );
   margin-bottom: 0;
+  padding: 0 1rem;
   color: white;
 }
 .callto__wrapper {
@@ -21,4 +22,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+/*RESPONSIVENESS*/
+
+@media screen and (max-width: 768px) {
+  .services {
+    flex-direction: column;
+  }
 }

@@ -49,3 +49,9 @@
     rgba(0, 0, 0, 1) 80%
   );
 }
+/*ADD RESPONSIVENESS TO SERVICES*/
+@media screen and (max-width: 768px) {
+  .service {
+    width: 100%;
+  }
+}
