@@ -19,3 +19,14 @@
 .black {
   background-color: #353839;
 }
+@media screen and (max-width: 786px) {
+  .mainWrapper__about {
+    flex-direction: column;
+  }
+  .about__img {
+    padding: 2rem;
+  }
+  .about__text {
+    padding: 2rem;
+  }
+}
