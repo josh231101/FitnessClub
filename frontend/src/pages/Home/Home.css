@@ -29,4 +29,7 @@
   .services {
     flex-direction: column;
   }
+  .blog__entries {
+    flex-direction: column;
+  }
 }
