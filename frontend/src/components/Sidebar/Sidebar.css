@@ -18,3 +18,13 @@
   opacity: 100%;
   top: 0;
 }
+.sidebar__close-btn {
+  color: #fff;
+  font-size: 2rem;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-100%, 60%);
+  cursor: pointer;
+}
