@@ -33,6 +33,6 @@
     flex-direction: column;
   }
   .article {
-    flex-basis: 25rem;
+    flex-basis: 16rem;
   }
 }

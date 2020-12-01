@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../components/Footer";
 import HeroSection from "../../components/HeroSection";
 import Navbar from "../../components/Navbar";
@@ -15,11 +15,17 @@ import ArticleTwo from "../../images/post2.jpg";
 import ArticleThree from "../../images/post3.jpg";
 import Article from "../../components/Article/Article";
 import { Link as LinkR } from "react-router-dom";
+import Sidebar from "../../components/Sidebar";
 
 const Home = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <>
-      <Navbar />
+      <Sidebar isOpen={isOpen} />
+      <Navbar toggle={toggle} />
       <HeroSection />
       <Main />
       <section className="services">

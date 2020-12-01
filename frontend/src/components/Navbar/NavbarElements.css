@@ -14,6 +14,7 @@
   margin-right: auto;
   margin-left: auto;
   height: 80px;
+  padding: 0 2rem;
 }
 .navbar--transparent {
   background-color: transparent;
@@ -55,7 +56,9 @@ span {
   transition: all 0.2s ease-in-out;
   z-index: 10;
 }
-
+.navbar__burger-icon {
+  display: none;
+}
 /*Animations*/
 @keyframes fadeIn {
   0% {
@@ -63,5 +66,20 @@ span {
   }
   100% {
     opacity: 1;
+  }
+}
+@media screen and (max-width: 768px) {
+  .navbar__burger-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #fff;
+  }
+  .navbar__links {
+    display: none;
   }
 }

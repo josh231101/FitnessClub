@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link as LinkS } from "react-scroll";
 import { Link as LinkR } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 import "./NavbarElements.css";
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
 
   const changeNav = () => {
@@ -39,6 +40,9 @@ const Navbar = () => {
           <LinkS to="features">Events</LinkS>
           <LinkR to="/login">Log In</LinkR>
           <LinkR to="/register">Register</LinkR>
+        </div>
+        <div className="navbar__burger-icon" onClick={toggle}>
+          <FaBars />
         </div>
       </div>
     </nav>
