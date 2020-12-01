@@ -32,4 +32,7 @@
   .blog__entries {
     flex-direction: column;
   }
+  .article {
+    flex-basis: 25rem;
+  }
 }
