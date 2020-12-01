@@ -61,16 +61,17 @@ header {
 @media screen and (max-width: 968px) {
   .mainHeader__wrapper__grid {
     grid-column: 1 / span 10;
+    padding: 0 2rem;
   }
   .mainHeader__wrapper__grid__text {
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
   }
   .mainHeader__wrapper h3 {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     margin: 0;
   }
   .mainHeader__wrapper p {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }

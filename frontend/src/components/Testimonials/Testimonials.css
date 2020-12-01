@@ -6,6 +6,7 @@
   color: white;
   display: flex;
   align-items: center;
+  padding: 2rem;
 }
 .testimonials__wrapper {
   padding: 2rem;
