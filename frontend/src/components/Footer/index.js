@@ -11,10 +11,7 @@ const Footer = () => {
             <div className="item__wrapper">
               <LinkR class="navbar__title" to="/">
                 Fit<span>Club</span>
-                <p>
-                  This is a really old post. My views on project structure have
-                  changed
-                </p>
+                <p>Taking the Fitness to the next level</p>
               </LinkR>
             </div>
             <div className="item__wrapper">

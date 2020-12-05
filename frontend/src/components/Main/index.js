@@ -18,7 +18,7 @@ const Main = () => {
           <h2>
             About <span>Us</span>
           </h2>
-          <p>
+          <p className="txt-justify">
             Donec enim augue, tempus vehicula pharetra non, feugiat vel lacus.
             Donec malesuada iaculis feugiat. Duis ullamcorper massa sit amet
             massa iaculis sagittis. Fusce interdum purus magna, sit amet
