@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-wrapper__copyright">
-          <p>&copy; All Rights Reserved {date}</p>
+          <small>{date} &copy; FitClub Corp. All Rights Reserved </small>
         </div>
       </div>
     </footer>

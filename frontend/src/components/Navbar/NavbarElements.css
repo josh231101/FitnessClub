@@ -33,6 +33,7 @@ span {
 }
 
 .navbar__links a {
+  transition: all 400ms ease-in-out;
   margin-left: 1.4rem;
   text-decoration: none;
   font-size: 1.2rem;
@@ -40,6 +41,7 @@ span {
   color: #fff;
 }
 .navbar__links a:hover {
+  transition: all 100ms ease-out;
   color: var(--global-company-color);
 }
 

@@ -4,7 +4,7 @@ import HeroSection from "../../components/HeroSection";
 import Navbar from "../../components/Navbar";
 import Main from "../../components/Main";
 import Features from "../../components/Features";
-import Testimonials from "../../components/Testimonials/Testimonials";
+import Testimonials from "../../components/Testimonials";
 import "./Home.css";
 import Service from "../../components/Service";
 import ImageCardio from "../../images/cardio.jpg";

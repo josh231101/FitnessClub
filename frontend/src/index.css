@@ -45,6 +45,12 @@ a {
   text-decoration: none;
   color: white;
 }
+input {
+  box-sizing: border-box;
+}
+form {
+  width: 100%;
+}
 /* UTILS */
 .btn {
   border-radius: 6px;
