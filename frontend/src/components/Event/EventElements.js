@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
+  animation: showCard 600ms ease-in-out;
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
   border-radius: 4px;
@@ -16,6 +17,9 @@ export const Card = styled.div`
   &:hover {
     transition: 0.4s ease-in-out;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+  }
+  @media screen and (max-width: 560px) {
+    margin-right: 0;
   }
 `;
 export const ImageCard = styled.img`

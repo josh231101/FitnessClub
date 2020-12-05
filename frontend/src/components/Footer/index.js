@@ -7,14 +7,14 @@ const Footer = () => {
     <footer>
       <div className="footer-wrapper">
         <div className="footer-wrapper__top">
-          <div className="footer-wrapper__top-item">
-            <div className="item__wrapper">
+          <div className="footer-wrapper__items">
+            <div className="footer-wrapper__item">
               <LinkR class="navbar__title" to="/">
                 Fit<span>Club</span>
                 <p>Taking the Fitness to the next level</p>
               </LinkR>
             </div>
-            <div className="item__wrapper">
+            <div className="footer-wrapper__item">
               <h4>Support</h4>
               <a href="#">Talk to Us</a>
               <a href="#">FAQ</a>
@@ -22,15 +22,15 @@ const Footer = () => {
               <a href="#">Terms & Conditions</a>
             </div>
           </div>
-          <div className="footer-wrapper__top-item">
-            <div className="item__wrapper">
+          <div className="footer-wrapper__items">
+            <div className="footer-wrapper__item">
               <h4>Fitness Club</h4>
               <a href="#">Pricing</a>
               <a href="#">Events</a>
               <a href="#">Articles</a>
               <a href="#">Our Instructors</a>
             </div>
-            <div className="item__wrapper">
+            <div className="footer-wrapper__item">
               <h4>Our Newsletter</h4>
               <form>
                 <input placeholder="Your Email" />
