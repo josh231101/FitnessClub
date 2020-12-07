@@ -16,6 +16,17 @@
   height: 80px;
   padding: 0 2rem;
 }
+.navbar__items {
+  padding : 0;
+  width : 100%;
+  display: flex;
+  justify-content : space-between;
+  align-items: center;
+  list-style: none;
+}
+.navbar__title-wrapper{
+  flex : 1;
+}
 .navbar--transparent {
   background-color: transparent;
 }
@@ -31,7 +42,9 @@
 span {
   color: var(--global-company-color);
 }
-
+.navbar__link{
+  margin-left : 24px;
+}
 .navbar__links a {
   transition: all 400ms ease-in-out;
   margin-left: 1.4rem;
@@ -81,7 +94,7 @@ span {
     cursor: pointer;
     color: #fff;
   }
-  .navbar__links {
+  .navbar__link {
     display: none;
   }
 }

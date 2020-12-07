@@ -29,18 +29,27 @@ const Navbar = ({ toggle }) => {
     window.addEventListener("scroll", changeNav);
   }, []);
   return (
-    <nav class="navbar navbar--transparent">
-      <div class="navbar__wrapper">
-        <LinkR class="navbar__title" to="/">
-          Fit<span>Club</span>
-        </LinkR>
-        <div class="navbar__links">
-          <LinkS to="about">About Us</LinkS>
-          <LinkS to="features">Features</LinkS>
-          <LinkS to="features">Events</LinkS>
-          <LinkR to="/login">Log In</LinkR>
-          <LinkR to="/register">Register</LinkR>
-        </div>
+    <nav className="navbar navbar--transparent">
+      <div className="navbar__wrapper">
+        <ul className="navbar__items">
+          <li className="navbar__title-wrapper">
+            <LinkR className="navbar__title" to="/">
+              Fit<span>Club</span>
+            </LinkR>
+          </li>
+          <li className="navbar__link">
+            <LinkS to="about">About Us</LinkS>
+          </li>
+          <li className="navbar__link">
+            <LinkS to="about">Features</LinkS>
+          </li>
+          <li className="navbar__link">
+            <LinkS to="about">Log In</LinkS>
+          </li>
+          <li className="navbar__link">
+            <LinkS to="about"><button className="btn primary">Register</button></LinkS>
+          </li>
+        </ul>
         <div className="navbar__burger-icon" onClick={toggle}>
           <FaBars />
         </div>

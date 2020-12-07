@@ -4,10 +4,10 @@ import { MdArrowForward } from "react-icons/md";
 import { Link as LinkS } from "react-scroll";
 const HeroSection = () => {
   return (
-    <header className="mainHeader">
-      <div className="container mainHeader__wrapper">
-        <div className="mainHeader__wrapper__grid">
-          <h1 className="mainHeader__wrapper__grid__text">
+    <header className="hero">
+      <div className="container hero__wrapper">
+        <div className="hero__grid">
+          <h1 className="hero__text">
             JOIN THE BEST
             <span> FITNESS CLUB</span>
           </h1>
