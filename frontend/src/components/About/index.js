@@ -4,16 +4,16 @@ import "./About.css";
 
 const About = () => {
   return (
-    <section className="container about p-3">
-      <div className="about__img">
+    <section className="container p-3 about">
+      <figure className="about__img">
         <img
           loading="lazy"
           src={aboutImg}
           alt="FitClub About Ilustration"
           aria-label="FitClub Image Example"
         />
-      </div>
-      <div className="about__text">
+      </figure>
+      <header className="about__header">
         <h2>
           About <span>Us</span>
         </h2>
@@ -24,7 +24,7 @@ const About = () => {
           iaculis vitae.Fusce interdum purus magna, sit amet imperdiet odio
           iaculis vitae.
         </p>
-      </div>
+      </header>
     </section>
   );
 };
