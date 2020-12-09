@@ -79,6 +79,10 @@ form {
 .p-3 {
   padding: 3rem 0;
 }
+.m-3 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 .txt-justify {
   text-align: justify;
 }

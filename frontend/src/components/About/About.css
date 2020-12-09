@@ -1,8 +1,4 @@
-.m-3 {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-.mainWrapper__about {
+.about {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,7 +16,7 @@
   background-color: #353839;
 }
 @media screen and (max-width: 786px) {
-  .mainWrapper__about {
+  .about {
     flex-direction: column;
   }
   .about__img {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Footer from "../../components/Footer";
 import HeroSection from "../../components/HeroSection";
 import Navbar from "../../components/Navbar";
-import Main from "../../components/Main";
+import About from "../../components/About";
 import Features from "../../components/Features";
 import Testimonials from "../../components/Testimonials";
 import "./Home.css";
@@ -27,45 +27,47 @@ const Home = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       <HeroSection />
-      <Main />
-      <section className="services">
-        <Service title="Cardio" imgUrl={ImageCardio} />
-        <Service title="Personal Trainer" imgUrl={ImageRun} />
-        <Service title="Fitness Events" imgUrl={ImageTrainer} />
-      </section>
-      <Features />
-      <Testimonials />
-
-      {/* BLOG ENTRIES */}
-      <section className="container blog">
-        <h2>Read Our Fitness Blog</h2>
-        <div className="blog__entries">
-          <Article
-            bgImg={ArticleOne}
-            title="How to create your fitness routine"
-            author="John Smith"
-          />
-          <Article
-            bgImg={ArticleTwo}
-            title="Living a healthy lifestyle is easy"
-            author="Carla Harvis"
-          />
-          <Article
-            bgImg={ArticleThree}
-            title="Marathon Event rocked last sunday"
-            author="Joshua Arreola"
-          />
-        </div>
-      </section>
-
-      <div className="callto">
-        <section className="container callto__wrapper">
-          <h2>Ready to get fit?</h2>
-          <LinkR to="/dashboard" className="btn secondary">
-            Our Events!
-          </LinkR>
+      <main>
+        <About />
+        <section className="services">
+          <Service title="Cardio" imgUrl={ImageCardio} />
+          <Service title="Personal Trainer" imgUrl={ImageRun} />
+          <Service title="Fitness Events" imgUrl={ImageTrainer} />
         </section>
-      </div>
+        <Features />
+        <Testimonials />
+
+        {/* BLOG ENTRIES */}
+        <section className="container blog">
+          <h2>Read Our Fitness Blog</h2>
+          <div className="blog__entries">
+            <Article
+              bgImg={ArticleOne}
+              title="How to create your fitness routine"
+              author="John Smith"
+            />
+            <Article
+              bgImg={ArticleTwo}
+              title="Living a healthy lifestyle is easy"
+              author="Carla Harvis"
+            />
+            <Article
+              bgImg={ArticleThree}
+              title="Marathon Event rocked last sunday"
+              author="Joshua Arreola"
+            />
+          </div>
+        </section>
+
+        <div className="callto">
+          <section className="container callto__wrapper">
+            <h2>Ready to get fit?</h2>
+            <LinkR to="/dashboard" className="btn secondary">
+              Our Events!
+            </LinkR>
+          </section>
+        </div>
+      </main>
 
       <Footer />
     </>
