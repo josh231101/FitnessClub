@@ -6,3 +6,8 @@
   font-size: 1rem;
   color: #79797e;
 }
+.card__details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+}

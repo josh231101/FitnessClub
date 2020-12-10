@@ -80,6 +80,16 @@ figure {
   background: white;
   color: var(--global-company-color);
 }
+.primary:hover {
+  transition: all 200ms ease-out;
+  color: var(--global-company-color);
+  background: white;
+}
+.secondary:hover {
+  transition: all 200ms ease-out;
+  background: var(--global-company-color);
+  color: white;
+}
 .p-3 {
   padding: 3rem 0;
 }

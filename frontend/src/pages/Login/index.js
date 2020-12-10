@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import api from "../../services/api";
+import Navbar from "../../components/Navbar";
+import HeroSection from "../../components/HeroSection";
+import Footer from "../../components/Footer";
+import "./Login.css";
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
@@ -25,13 +29,15 @@ const Login = ({ history }) => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <p>
-        Please <strong>Login</strong> into your account
-      </p>
-      <form inline onSubmit={handleSubmit}>
-        <div className="mb-2 mr-sm-2 mb-sm-0">
+    <>
+      <Navbar />
+      <HeroSection />
+      <section className="container login">
+        <h2>Login</h2>
+        <p>
+          Please <strong>Login</strong> into your account
+        </p>
+        <form className="login__form" onSubmit={handleSubmit}>
           <input
             required
             type="email"
@@ -40,8 +46,6 @@ const Login = ({ history }) => {
             placeholder="Your Email"
             onChange={(evt) => setEmail(evt.target.value)}
           />
-        </div>
-        <div className="mb-2 mr-sm-2 mb-sm-0">
           <input
             required
             type="password"
@@ -50,13 +54,17 @@ const Login = ({ history }) => {
             placeholder="Your Password"
             onChange={(evt) => setPassword(evt.target.value)}
           />
-        </div>
-        <button>Submit</button>
-        <button onClick={() => history.push("/register")}>
-          Not an user? Register
-        </button>
-      </form>
-    </div>
+          <button className="btn primary">Submit</button>
+          <button
+            className="btn secondary"
+            onClick={() => history.push("/register")}
+          >
+            Not an user? Register
+          </button>
+        </form>
+      </section>
+      <Footer />
+    </>
   );
 };
 

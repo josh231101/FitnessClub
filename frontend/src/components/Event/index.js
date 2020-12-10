@@ -10,8 +10,10 @@ function Event({ imageUrl, title, description, price, topic }) {
         <p className="card__description">
           {description.split("", 50).join("")}...
         </p>
-        <strong>${price}.00</strong>
-        <span>{topic}</span>
+        <p className="card__details">
+          <strong>${price}.00</strong>
+          <span>{topic}</span>
+        </p>
       </CardDescription>
     </Card>
   );
