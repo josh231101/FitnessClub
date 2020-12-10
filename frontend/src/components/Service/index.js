@@ -1,6 +1,5 @@
 import React from "react";
 import "./Service.css";
-import Image from "../../images/cardio.jpg";
 const Service = ({ title, imgUrl }) => {
   return (
     <div className="service">

@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link as LinkS } from "react-scroll";
 import { Link as LinkR } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import "./NavbarElements.css";
 
 const Navbar = ({ toggle }) => {
-  const [scrollNav, setScrollNav] = useState(false);
-
   const changeNav = () => {
     if (window.scrollY >= 80) {
       document
@@ -47,7 +45,9 @@ const Navbar = ({ toggle }) => {
             <LinkS to="about">Log In</LinkS>
           </li>
           <li className="navbar__link">
-            <LinkS to="about"><button className="btn primary">Register</button></LinkS>
+            <LinkS to="about">
+              <button className="btn primary">Register</button>
+            </LinkS>
           </li>
         </ul>
         <div className="navbar__burger-icon" onClick={toggle}>

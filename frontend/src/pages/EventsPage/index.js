@@ -11,7 +11,7 @@ import api from "../../services/api";
     */
 
 const EventsPage = () => {
-  const user_id = localStorage.getItem("user");
+  // const user_id = localStorage.getItem("user");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -113,7 +113,6 @@ const EventsPage = () => {
           <label>Event Date: </label>
           <input
             required
-            id="data"
             type="date"
             value={date}
             id="price"
