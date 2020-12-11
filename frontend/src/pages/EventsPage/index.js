@@ -12,8 +12,8 @@ import "./EventsPage.css";
 
     */
 
-const EventsPage = () => {
-  const user_id = localStorage.getItem("user");
+const EventsPage = ({ history }) => {
+  const [user] = useState(localStorage.getItem("user"));
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -42,6 +42,7 @@ const EventsPage = () => {
     try {
       await api.post("/event", eventData, { headers: { user_id } });
       clear();
+      alert("Event Created Successfully");
     } catch (e) {
       alert(e);
     }
@@ -51,9 +52,11 @@ const EventsPage = () => {
     setPrice("");
     setSport("");
     setPrice("");
+    setTitle("");
+    setDate("");
     setThumbnail(null);
   };
-  return (
+  return user ? (
     <div className="events">
       <section className="events__section">
         <h3>Create your own event</h3>
@@ -73,7 +76,7 @@ const EventsPage = () => {
               <img
                 className="create-event__placeholder"
                 src={imgplaceholder}
-                alt="Insert Image"
+                alt="Insert Event Ilustration"
                 style={{ visibility: `${!thumbnail ? "visible" : "hidden"}` }}
               />
             </label>
@@ -133,6 +136,21 @@ const EventsPage = () => {
             </button>
           </div>
         </form>
+      </section>
+    </div>
+  ) : (
+    <div className="events">
+      <section className="events__section">
+        <h1>You are not Logged In please Log In or Register</h1>
+        <button className="btn primary" onClick={() => history.push("/login")}>
+          Log In
+        </button>
+        <button
+          className="btn secondary"
+          onClick={() => history.push("/register")}
+        >
+          Register
+        </button>
       </section>
     </div>
   );
