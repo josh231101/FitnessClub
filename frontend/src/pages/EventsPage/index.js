@@ -18,8 +18,9 @@ const EventsPage = ({ history }) => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [thumbnail, setThumbnail] = useState(null);
-  const [sport, setSport] = useState("");
+  const [sport, setSport] = useState("running");
   const [date, setDate] = useState("");
+  const [wasCreated, isCreated] = useState(false);
 
   //Every time the thumnail changes I want to refresh the property. Memo is a Hook
   const preview = useMemo(() => {
@@ -43,6 +44,7 @@ const EventsPage = ({ history }) => {
       await api.post("/event", eventData, { headers: { user_id } });
       clear();
       alert("Event Created Successfully");
+      isCreated(true);
     } catch (e) {
       alert(e);
     }
@@ -82,16 +84,6 @@ const EventsPage = ({ history }) => {
             </label>
           </div>
           <div className="create-event__right">
-            <label>Sport:</label>
-            <input
-              className="create-event__input"
-              required
-              type="text"
-              value={sport}
-              placeholder="Sport Name"
-              id="sport"
-              onChange={(evt) => setSport(evt.target.value)}
-            />
             <label>Title:</label>
             <input
               className="create-event__input"
@@ -131,11 +123,43 @@ const EventsPage = ({ history }) => {
               id="price"
               onChange={(evt) => setDate(evt.target.value)}
             />
+            <label>Sport:</label>
+            <select
+              name="event"
+              id="event"
+              className="custom-select sources"
+              onChange={(e) => {
+                setSport(e.target.value);
+              }}
+            >
+              <option className="custom-option" value="running">
+                Running
+              </option>
+              <option className="custom-option" value="cycling">
+                Cycling
+              </option>
+              <option className="custom-option" value="swimming">
+                Swimming
+              </option>
+              <option className="custom-option" value="other">
+                Other
+              </option>
+            </select>
             <button className="btn primary" type="Submit">
               Create Event
             </button>
           </div>
         </form>
+        {wasCreated && (
+          <button
+            className="btn secondary"
+            onClick={() => {
+              history.push("/dashboard");
+            }}
+          >
+            Events
+          </button>
+        )}
       </section>
     </div>
   ) : (

@@ -50,6 +50,9 @@ const Dashboard = () => {
           <option className="custom-option" value="swimming">
             Swimming
           </option>
+          <option className="custom-option" value="other">
+            Others
+          </option>
         </select>
         <CardWrapper>
           {events.map((event) => (
