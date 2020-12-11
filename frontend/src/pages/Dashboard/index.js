@@ -56,13 +56,7 @@ const Dashboard = () => {
         </select>
         <CardWrapper>
           {events.map((event) => (
-            <Event
-              imageUrl={event.thumbnail_url}
-              title={event.title}
-              description={event.description}
-              price={event.price}
-              topic={event.sport}
-            />
+            <Event {...event} />
           ))}
         </CardWrapper>
       </div>

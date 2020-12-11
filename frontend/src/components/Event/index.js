@@ -1,10 +1,13 @@
 import React from "react";
 import { Card, ImageCard, CardDescription } from "./EventElements";
+import { Link } from "react-router-dom";
 import "./Event.css";
-function Event({ imageUrl, title, description, price, topic }) {
+function Event({ thumbnail_url, title, description, price, sport, id }) {
   return (
     <Card>
-      <ImageCard src={imageUrl} />
+      <Link to={`/event/${id}`}>
+        <ImageCard src={thumbnail_url} />
+      </Link>
       <CardDescription>
         <h3 className="card__title">{title}</h3>
         <p className="card__description">
@@ -12,7 +15,7 @@ function Event({ imageUrl, title, description, price, topic }) {
         </p>
         <p className="card__details">
           <strong>${price}.00</strong>
-          <span>{topic}</span>
+          <span>{sport}</span>
         </p>
       </CardDescription>
     </Card>
