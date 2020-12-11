@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from "react";
 import api from "../../services/api";
+import imgplaceholder from "../../images/image-file.png";
+import "./EventsPage.css";
 /*
         title : String,
         description : String,
@@ -11,7 +13,7 @@ import api from "../../services/api";
     */
 
 const EventsPage = () => {
-  // const user_id = localStorage.getItem("user");
+  const user_id = localStorage.getItem("user");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -52,75 +54,86 @@ const EventsPage = () => {
     setThumbnail(null);
   };
   return (
-    <div>
-      <h1>Create your own event</h1>
-      <form onSubmit={submitHandler}>
-        <div>
-          <label>Upload Image:</label>
-          <label id="thumbnail" style={{ backgroundImage: `url(${preview})` }}>
+    <div className="events">
+      <section className="events__section">
+        <h3>Create your own event</h3>
+        <form className="create-event" onSubmit={submitHandler}>
+          <div className="create-event__left">
+            <label>Upload Image:</label>
+            <label
+              id="thumbnail"
+              style={{ backgroundImage: `url(${preview})` }}
+            >
+              <input
+                className="create-event__img"
+                required
+                type="file"
+                onChange={(evt) => setThumbnail(evt.target.files[0])}
+              />
+              <img
+                className="create-event__placeholder"
+                src={imgplaceholder}
+                alt="Insert Image"
+                style={{ visibility: `${!thumbnail ? "visible" : "hidden"}` }}
+              />
+            </label>
+          </div>
+          <div className="create-event__right">
+            <label>Sport:</label>
             <input
+              className="create-event__input"
               required
-              type="file"
-              onChange={(evt) => setThumbnail(evt.target.files[0])}
+              type="text"
+              value={sport}
+              placeholder="Sport Name"
+              id="sport"
+              onChange={(evt) => setSport(evt.target.value)}
             />
-          </label>
-        </div>
-        <div>
-          <label>Sport:</label>
-          <input
-            required
-            type="text"
-            value={sport}
-            placeholder="Sport Name"
-            id="sport"
-            onChange={(evt) => setSport(evt.target.value)}
-          />
-        </div>
-        <div>
-          <label>Title:</label>
-          <input
-            required
-            type="text"
-            value={title}
-            placeholder="Title"
-            id="title"
-            onChange={(evt) => setTitle(evt.target.value)}
-          />
-        </div>
-        <div>
-          <label>Description:</label>
-          <input
-            required
-            type="text"
-            value={description}
-            placeholder="Event Description"
-            id="description"
-            onChange={(evt) => setDescription(evt.target.value)}
-          />
-        </div>
-        <div>
-          <label>Event Price: </label>
-          <input
-            required
-            type="text"
-            value={price}
-            placeholder="Event Price $0.00"
-            id="price"
-            onChange={(evt) => setPrice(evt.target.value)}
-          />
-        </div>
-        <div>
-          <label>Event Date: </label>
-          <input
-            required
-            type="date"
-            value={date}
-            id="price"
-            onChange={(evt) => setDate(evt.target.value)}
-          />
-        </div>
-        <button type="Submit">Create Event</button>
-      </form>
+            <label>Title:</label>
+            <input
+              className="create-event__input"
+              required
+              type="text"
+              value={title}
+              placeholder="Title"
+              id="title"
+              onChange={(evt) => setTitle(evt.target.value)}
+            />
+            <label>Description:</label>
+            <input
+              className="create-event__input"
+              required
+              type="text"
+              value={description}
+              placeholder="Event Description"
+              id="description"
+              onChange={(evt) => setDescription(evt.target.value)}
+            />
+            <label>Event Price: </label>
+            <input
+              className="create-event__input"
+              required
+              type="text"
+              value={price}
+              placeholder="Event Price $0.00"
+              id="price"
+              onChange={(evt) => setPrice(evt.target.value)}
+            />
+            <label>Event Date: </label>
+            <input
+              className="create-event__input"
+              required
+              type="date"
+              value={date}
+              id="price"
+              onChange={(evt) => setDate(evt.target.value)}
+            />
+            <button className="btn primary" type="Submit">
+              Create Event
+            </button>
+          </div>
+        </form>
+      </section>
     </div>
   );
 };
