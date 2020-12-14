@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { Link as LinkR } from "react-router-dom";
 import Footer from "../../components/Footer";
 import HeroSection from "../../components/HeroSection";
 import Navbar from "../../components/Navbar";
 import About from "../../components/About";
 import Features from "../../components/Features";
 import Testimonials from "../../components/Testimonials";
-import "./Home.css";
 import Service from "../../components/Service";
 import ImageCardio from "../../images/cardio.jpg";
 import ImageRun from "../../images/run.jpg";
@@ -14,8 +14,8 @@ import ArticleOne from "../../images/post.jpg";
 import ArticleTwo from "../../images/post2.jpg";
 import ArticleThree from "../../images/post3.jpg";
 import Article from "../../components/Article/Article";
-import { Link as LinkR } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
+import "./Home.css";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -2,15 +2,6 @@ import React, { useState, useMemo } from "react";
 import api from "../../services/api";
 import imgplaceholder from "../../images/image-file.png";
 import "./EventsPage.css";
-/*
-        title : String,
-        description : String,
-        price : Number,
-        thumbnail : String,
-        sport : String,
-        date : Date,
-
-    */
 
 const EventsPage = ({ history }) => {
   const [user] = useState(localStorage.getItem("user"));
