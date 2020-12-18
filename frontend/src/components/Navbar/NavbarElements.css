@@ -17,15 +17,15 @@
   padding: 0 2rem;
 }
 .navbar__items {
-  padding : 0;
-  width : 100%;
+  padding: 0;
+  width: 100%;
   display: flex;
-  justify-content : space-between;
+  justify-content: space-between;
   align-items: center;
   list-style: none;
 }
-.navbar__title-wrapper{
-  flex : 1;
+.navbar__title-wrapper {
+  flex: 1;
 }
 .navbar--transparent {
   background-color: transparent;
@@ -42,8 +42,9 @@
 span {
   color: var(--global-company-color);
 }
-.navbar__link{
-  margin-left : 24px;
+.navbar__link {
+  margin-left: 24px;
+  cursor: pointer;
 }
 .navbar__links a {
   transition: all 400ms ease-in-out;

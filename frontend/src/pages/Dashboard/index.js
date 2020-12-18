@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 import Event from "../../components/Event";
-import { CardWrapper } from "./DashboardElements";
 import Navbar from "../../components/Navbar";
-import HeroSection from "../../components/HeroSection";
 import Footer from "../../components/Footer";
 import "./Dashboard.css";
+import HeroSection from "../../components/HeroSection";
 
 const Dashboard = () => {
   const [events, setEvents] = useState([]);
@@ -15,9 +14,8 @@ const Dashboard = () => {
   }, []);
   const getEvents = async (filter) => {
     const url = filter ? `/dashboard/${filter}` : "/dashboard";
-    const response = await api.get(url).then(({ data }) => {
-      setEvents(data);
-    });
+    const response = await api.get(url);
+    setEvents(response.data);
   };
   const filterEvents = (query) => {
     getEvents(query);
@@ -27,7 +25,7 @@ const Dashboard = () => {
     <>
       <Navbar />
       <HeroSection />
-      <div className="container">
+      <section name="events" className="container">
         <h2>Events</h2>
         <p className="events__filter">Filter:</p>
         <select
@@ -59,7 +57,7 @@ const Dashboard = () => {
             <Event {...event} />
           ))}
         </div>
-      </div>
+      </section>
       <Footer />
     </>
   );

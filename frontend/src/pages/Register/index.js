@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import Navbar from "../../components/Navbar";
+import HeroSection from "../../components/HeroSection";
 import api from "../../services/api";
+import Footer from "../../components/Footer";
 
 const Register = ({ history }) => {
   const [email, setEmail] = useState("");
@@ -33,51 +36,58 @@ const Register = ({ history }) => {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <p>Create a new account</p>
-      <form inline className="w-100" onSubmit={handleSubmit}>
-        <div className="w-100 mb-2 text-xl-center">
-          <input
-            className=""
-            type="text"
-            name="firstName"
-            id="firstName"
-            placeholder="Your First Name"
-            onChange={(evt) => setFirstName(evt.target.value)}
-          />
-        </div>
-        <div className="w-100 mb-2 ">
-          <input
-            type="text"
-            name="lastName"
-            id="lastName"
-            placeholder="Your Last Name"
-            onChange={(evt) => setLastName(evt.target.value)}
-          />
-        </div>
-        <div className="w-100 mb-2">
-          <input
-            type="email"
-            name="email"
-            id="exampleEmail"
-            placeholder="Your Email"
-            onChange={(evt) => setEmail(evt.target.value)}
-          />
-        </div>
-        <div className="w-100 mb-2">
-          <input
-            type="password"
-            name="password"
-            id="examplePassword"
-            placeholder="Your Password"
-            onChange={(evt) => setPassword(evt.target.value)}
-          />
-        </div>
-        <button>Submit</button>
-        <button onClick={() => history.push("/")}>Login Instead?</button>
-      </form>
-    </div>
+    <>
+      <Navbar />
+      <HeroSection />
+      <section class="container registration">
+        <h2>Register</h2>
+        <p>Create a new account</p>
+        <form inline className="registration__form" onSubmit={handleSubmit}>
+          <div className="  text-xl-center">
+            <input
+              className=""
+              type="text"
+              name="firstName"
+              id="firstName"
+              placeholder="Your First Name"
+              onChange={(evt) => setFirstName(evt.target.value)}
+            />
+          </div>
+          <div className="  ">
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              placeholder="Your Last Name"
+              onChange={(evt) => setLastName(evt.target.value)}
+            />
+          </div>
+          <div className=" ">
+            <input
+              type="email"
+              name="email"
+              id="exampleEmail"
+              placeholder="Your Email"
+              onChange={(evt) => setEmail(evt.target.value)}
+            />
+          </div>
+          <div className=" ">
+            <input
+              type="password"
+              name="password"
+              id="examplePassword"
+              placeholder="Your Password"
+              onChange={(evt) => setPassword(evt.target.value)}
+            />
+          </div>
+          <button class="btn primary">Submit</button>
+          <button class="btn secondary" onClick={() => history.push("/")}>
+            Login Instead?
+          </button>
+        </form>
+      </section>
+      <Footer />
+    </>
   );
 };
 

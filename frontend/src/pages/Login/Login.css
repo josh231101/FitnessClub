@@ -1,15 +1,15 @@
-.login {
+.registration {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.login__form {
+.registration__form {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
-.login__form * {
-  margin-bottom: 12px;
+.registration__form * {
+  margin-bottom: 8px;
 }

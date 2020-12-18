@@ -7,7 +7,7 @@ import salud from "../../assets/salud.svg";
 
 const Features = () => {
   return (
-    <section className="container m-3 center">
+    <section id="features" className="container m-3 center">
       <h2 className="m-3">Our Features</h2>
       <div className="features">
         <div className="feature">

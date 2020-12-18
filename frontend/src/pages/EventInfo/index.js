@@ -2,21 +2,17 @@ import React, { useEffect, useState } from "react";
 import HeroSection from "../../components/HeroSection";
 import Navbar from "../../components/Navbar";
 import api from "../../services/api";
+import "./EventInfo.css";
 
 const EventInfo = () => {
   const [event, setEvent] = useState({});
   useEffect(() => {
-    console.log(window.location.pathname);
-    console.log("Gffff");
     getEvent();
   }, []);
   const getEvent = async () => {
     const url = window.location.pathname;
-    console.log(url);
-    const response = await api.get(url).then(({ data }) => {
-      console.log(data);
-      setEvent(data);
-    });
+    const response = await api.get(url);
+    setEvent(response.data);
   };
   return (
     <div>
@@ -26,13 +22,15 @@ const EventInfo = () => {
         <h2>Event</h2>
         {event && (
           <div className="event">
-            <img src={event.thumbnail_url} />
-            <h3>{event.title}</h3>
-            <p>{event.description}</p>
-            <p>
-              <strong>{event.price}</strong>
-              <span>{event.sport}</span>
-            </p>
+            <img src={event.thumbnail_url} alt="Sport event illustration" />
+            <div clas="event__description">
+              <h3>{event.title}</h3>
+              <p>{event.description}</p>
+              <p>
+                <strong>{event.price}</strong>
+                <span>{event.sport}</span>
+              </p>
+            </div>
           </div>
         )}
       </section>

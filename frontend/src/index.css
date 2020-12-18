@@ -56,6 +56,11 @@ figure {
   padding: 0;
   margin: 0;
 }
+input {
+  padding: 8px;
+  border: 1px solid gray;
+  border-radius: 8px;
+}
 /* UTILS */
 .btn {
   border-radius: 6px;

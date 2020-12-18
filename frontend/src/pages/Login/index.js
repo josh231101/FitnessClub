@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import api from "../../services/api";
 import Navbar from "../../components/Navbar";
-import HeroSection from "../../components/HeroSection";
 import Footer from "../../components/Footer";
 import "./Login.css";
+import HeroSection from "../../components/HeroSection";
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
@@ -32,12 +32,12 @@ const Login = ({ history }) => {
     <>
       <Navbar />
       <HeroSection />
-      <section className="container login">
+      <section className="container registration">
         <h2>Login</h2>
         <p>
           Please <strong>Login</strong> into your account
         </p>
-        <form className="login__form" onSubmit={handleSubmit}>
+        <form className="registration__form" onSubmit={handleSubmit}>
           <input
             required
             type="email"
