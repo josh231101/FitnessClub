@@ -25,7 +25,7 @@ const Dashboard = () => {
     <>
       <Navbar />
       <HeroSection />
-      <section name="events" className="container">
+      <section id="events" className="container">
         <h2>Events</h2>
         <p className="events__filter">Filter:</p>
         <select

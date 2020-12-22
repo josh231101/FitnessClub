@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HeroSection from "../../components/HeroSection";
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import api from "../../services/api";
 import "./EventInfo.css";
 
@@ -15,7 +16,7 @@ const EventInfo = () => {
     setEvent(response.data);
   };
   return (
-    <div>
+    <>
       <Navbar />
       <HeroSection />
       <section className="container">
@@ -26,15 +27,16 @@ const EventInfo = () => {
             <div clas="event__description">
               <h3>{event.title}</h3>
               <p>{event.description}</p>
-              <p>
-                <strong>{event.price}</strong>
+              <p className="event__details">
+                <strong>$ {event.price}</strong>
                 <span>{event.sport}</span>
               </p>
             </div>
           </div>
         )}
       </section>
-    </div>
+      <Footer/>
+    </>
   );
 };
 

@@ -8,7 +8,7 @@ const HeroSection = () => {
     scroll.scrollTo("events", {
       duration: 500,
       smooth: true,
-      offset: 80,
+      offset : -80,
     });
   };
   return (
