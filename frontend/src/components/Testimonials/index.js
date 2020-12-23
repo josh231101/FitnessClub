@@ -11,6 +11,7 @@ const Testimonials = () => {
     className: "container",
     autoplay: true,
     arrows: false,
+    key : Math.floor(Math.random() * 10)
   };
   return (
     <section className="testimonials">
@@ -19,7 +20,7 @@ const Testimonials = () => {
         {info.map((entry) => {
           return (
             <div className="testimonials__center">
-              <ImQuotesLeft class="wh" />
+              <ImQuotesLeft className="wh" />
               <blockquote>{entry.testimonial}</blockquote>
               <p>{entry.user}</p>
             </div>

@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="footer-wrapper__top">
           <div className="footer-wrapper__items">
             <div className="footer-wrapper__item">
-              <LinkR class="navbar__title" to="/">
+              <LinkR className="navbar__title" to="/">
                 Fit<span>Club</span>
                 <p>Taking the Fitness to the next level</p>
               </LinkR>

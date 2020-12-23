@@ -52,7 +52,7 @@ const Dashboard = () => {
             Others
           </option>
         </select>
-        <div class="card-wrapper">
+        <div className="card-wrapper">
           {events.map((event) => (
             <Event {...event} />
           ))}

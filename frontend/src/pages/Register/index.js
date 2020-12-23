@@ -39,7 +39,7 @@ const Register = ({ history }) => {
     <>
       <Navbar />
       <HeroSection />
-      <section class="container registration">
+      <section className="container registration">
         <h2>Register</h2>
         <p>Create a new account</p>
         <form inline className="registration__form" onSubmit={handleSubmit}>
@@ -80,8 +80,8 @@ const Register = ({ history }) => {
               onChange={(evt) => setPassword(evt.target.value)}
             />
           </div>
-          <button class="btn primary">Submit</button>
-          <button class="btn secondary" onClick={() => history.push("/")}>
+          <button className="btn primary">Submit</button>
+          <button className="btn secondary" onClick={() => history.push("/")}>
             Login Instead?
           </button>
         </form>

@@ -5,6 +5,8 @@ module.exports = {
   async store(req,res){
     try {
       const {email,password} = req.body;
+      console.log(email);
+      console.log(password);
       if(!email || !password){
         //One field is missing
         return res.status(200).json({message : "Required field missing"});
@@ -12,7 +14,7 @@ module.exports = {
       const user = await User.findOne({email});
       if(!user){
         //The email is not register
-        return res.status(400).json({message : "Email not found! Register instead?"})
+        return res.status(200).json({message : "Email not found! Register instead?"})
       }
 
       if(user && await bcrypt.compare(password , user.password)){
@@ -27,7 +29,7 @@ module.exports = {
         return res.status(200).json(userResponse)
       }else{
         //EITHER the password or email are incorrect
-        return res.status(400).json({message : "Email or password does not match"})
+        return res.status(200).json({message : "Email or password does not match"})
       }
 
     } catch (e) {
