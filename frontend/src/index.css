@@ -45,6 +45,7 @@ blockquote {
 a {
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 input {
   box-sizing: border-box;
