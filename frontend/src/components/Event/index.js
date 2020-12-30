@@ -1,14 +1,27 @@
 import React from "react";
 import { Card, ImageCard, CardDescription } from "./EventElements";
 import { Link } from "react-router-dom";
+import {useStateValue}  from '../../services/StateProvider';
+import {useHistory} from 'react-router-dom';
+import api from '../../services/api.js';
 import "./Event.css";
-function Event({ thumbnail_url, title, description, price, sport, id }) {
+const Event = ({ thumbnail_url, title, description, price, sport,id, user}) =>{
+  const stateValue = useStateValue();
+  const history = useHistory();
+
+  const handleDelete = async() =>{
+    const response = await api.delete(`/event/${id}`)
+    alert("Event deleted successfully");
+    history.go('/dashboard')
+  }
+  const pushToEventPage = (url)=>{
+    history.push(url)
+  }
   return (
-    <Card>
-      <Link to={`/event/${id}`}>
-        <ImageCard src={thumbnail_url} />
-      </Link>
-      <CardDescription>
+    <Card >
+    {user === stateValue[0].user && (<button className="btn primary card__delete-btn" onClick={handleDelete}>Delete</button>)}
+      <ImageCard src={thumbnail_url} />
+      <CardDescription onClick={()=>{pushToEventPage(`/event/${id}`)}}>
         <h3 className="card__title">{title}</h3>
         <p className="card__description">
           {description.split("", 50).join("")}...

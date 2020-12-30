@@ -35,7 +35,7 @@ module.exports = {
       //204->  The server succesfully processed the request
       return res.status(204).json({message : "succesfully Deleted"})
     } catch (e) {
-      return res.status(400).json({message : "We dont have any event with the ID"})
+      return res.status(200).json({message : "We dont have any event with the ID"})
     }
   },
 

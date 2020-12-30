@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Event from '../../components/Event';
 import HeroSection from '../../components/HeroSection';
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import api from '../../services/api';
 import {useStateValue} from '../../services/StateProvider';
 import './UserEvents.css';
@@ -26,12 +27,13 @@ const UserEvents = () => {
           <HeroSection/>
           <section className="container">
             <h2>My Events</h2>
-            <div className="user-events">
+            <div className="cards-wrapper">
                 {userEvents.map((event) => (
                     <Event {...event} />
                 ))}
             </div>
           </section>
+          <Footer/>
 
         </>
     )

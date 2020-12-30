@@ -15,6 +15,7 @@ const Dashboard = () => {
   const getEvents = async (filter) => {
     const url = filter ? `/dashboard/${filter}` : "/dashboard";
     const response = await api.get(url);
+    console.log(response.data);
     setEvents(response.data);
   };
   const filterEvents = (query) => {
@@ -52,7 +53,7 @@ const Dashboard = () => {
             Others
           </option>
         </select>
-        <div className="card-wrapper">
+        <div className="cards-wrapper">
           {events.map((event) => (
             <Event {...event} />
           ))}
