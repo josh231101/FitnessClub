@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { Link as LinkS } from "react-scroll";
 import { Link as LinkR } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
@@ -8,6 +8,7 @@ import "./NavbarElements.css";
 
 const Navbar = ({ toggle ,isHome}) => {
   const user = useStateValue();
+  const [navbarStatus,setNavbarStatus] = useState(true)
   const toggleHome = () => {
     scroll.scrollToTop();
   };
@@ -67,7 +68,7 @@ const Navbar = ({ toggle ,isHome}) => {
     return(
       <>
         <li className="navbar__link">
-          < LinkR to="/myaccount">Create Event</LinkR>
+          < LinkR onClick={()=>setNavbarStatus(false)} to="/events">Create Event</LinkR>
         </li>
         <li className="navbar__link">
           <LinkR to="/events">
@@ -79,7 +80,10 @@ const Navbar = ({ toggle ,isHome}) => {
   }
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
-  }, []);
+    if(!navbarStatus){
+      window.removeEventListener("scroll");
+    }
+  }, [navbarStatus]);
   return (
     <nav className="navbar navbar--transparent">
       <div className="navbar__wrapper">
