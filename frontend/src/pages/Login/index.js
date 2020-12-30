@@ -4,8 +4,10 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import "./Login.css";
 import HeroSection from "../../components/HeroSection";
+import {useStateValue} from '../../services/StateProvider';
 
 const Login = ({ history }) => {
+  const [,dispatch] = useStateValue();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,6 +23,10 @@ const Login = ({ history }) => {
     if (userId) {
       //We create a localstorage to have the info in all the SPA
       localStorage.setItem("user", userId);
+      dispatch({
+        type :'SET_USER',
+        user : userId
+      })
       history.push("/dashboard");
     } else {
       const { message } = response.data;

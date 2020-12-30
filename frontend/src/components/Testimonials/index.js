@@ -11,15 +11,13 @@ const Testimonials = () => {
     className: "container",
     autoplay: true,
     arrows: false,
-    key : Math.floor(Math.random() * 10)
   };
   return (
     <section className="testimonials">
       <Slider dots {...settings}>
-        {console.log(info)}
         {info.map((entry) => {
           return (
-            <div className="testimonials__center">
+            <div className="testimonials__center" key={entry.key}>
               <ImQuotesLeft className="wh" />
               <blockquote>{entry.testimonial}</blockquote>
               <p>{entry.user}</p>

@@ -4,24 +4,38 @@ import { Link as LinkR } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { animateScroll as scroll } from "react-scroll";
 import {useStateValue} from "../../services/StateProvider";
+import {useHistory} from 'react-router-dom';
 import "./NavbarElements.css";
 
+
+
 const Navbar = ({ toggle ,isHome}) => {
-  const user = useStateValue();
+  const [{user},dispatch] = useStateValue();
+  const history = useHistory();
   const [navbarStatus,setNavbarStatus] = useState(true)
   const toggleHome = () => {
     scroll.scrollToTop();
   };
   const changeNav = () => {
     const navbar = document.querySelector(".navbar");
-    if (window.scrollY >= 80) {
-      navbar.classList.remove("navbar--transparent");
-      navbar.classList.add("navbar--active");
-    } else {
-      navbar.classList.remove("navbar--active");
-      navbar.classList.add("navbar--transparent");
+    if(navbar){
+      if (window.scrollY >= 80) {
+        navbar.classList.remove("navbar--transparent");
+        navbar.classList.add("navbar--active");
+      } else {
+        navbar.classList.remove("navbar--active");
+        navbar.classList.add("navbar--transparent");
+      }
     }
   };
+  const logOutUser = () =>{
+    window.localStorage.clear();
+    dispatch({
+      type :'SET_USER',
+      user : null
+    });
+    history.push("/");
+  }
   const homeLinks = ()=>{
     return (
       <>
@@ -70,10 +84,14 @@ const Navbar = ({ toggle ,isHome}) => {
         <li className="navbar__link">
           < LinkR onClick={()=>setNavbarStatus(false)} to="/events">Create Event</LinkR>
         </li>
-        <li className="navbar__link">
-          <LinkR to="/events">
-            <button className="btn primary">My Account</button>
-          </LinkR>
+        <li className="navbar__link dropdown">
+          <button className="btn primary dropbtn">My Account</button>
+          <div className="dropdown-content">
+            <LinkR to="/user/events">My Events</LinkR>
+            <LinkR to="/events">Create Event</LinkR>
+            <LinkR to="/">My subscriptions</LinkR>
+            <LinkR onClick={logOutUser} >Log Out</LinkR>
+          </div>
         </li>
       </>
     )
@@ -94,7 +112,7 @@ const Navbar = ({ toggle ,isHome}) => {
             </LinkR>
           </li>
           {isHome && homeLinks()}
-          {user ? userLinks(): newUserLinks() }
+          {user ? userLinks() : newUserLinks() }
         </ul>
         <div className="navbar__burger-icon" onClick={toggle}>
           <FaBars />

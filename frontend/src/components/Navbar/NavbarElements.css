@@ -75,6 +75,40 @@ span {
 .navbar__burger-icon {
   display: none;
 }
+/*DROPDOWN*/
+.dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--global-company-color);
+  min-width: 160px;
+  padding: 8px;
+  z-index: 1;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+.dropdown-content a {
+  border-radius: 8px;
+  padding: 8px;
+}
+.dropdown-content a:hover {
+  background-color: white;
+  color: var(--global-company-color);
+}
+.dropdown:hover .dropdown-content {
+  display: grid;
+  grid-template-rows: repeat(4, minmax(40px, 1fr));
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #fff;
+  color: var(--global-company-color);
+}
 /*Animations*/
 @keyframes fadeIn {
   0% {

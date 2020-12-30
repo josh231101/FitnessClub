@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import HeroSection from "../../components/HeroSection";
 import api from "../../services/api";
+import {useStateValue} from '../../services/StateProvider';
 import Footer from "../../components/Footer";
 
 const Register = ({ history }) => {
+  const [,dispatch] = useStateValue();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -28,6 +30,10 @@ const Register = ({ history }) => {
     if (userId) {
       //We create a localstorage to have the info in all the SPA
       localStorage.setItem("user", userId);
+      dispatch({
+        type : 'SET_USER',
+        user : userId
+      });
       history.push("/dashboard");
     } else {
       const { message } = response.data;

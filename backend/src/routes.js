@@ -34,6 +34,8 @@ routes.post("/registration/:registration_id/rejections", RejectionController.rej
 routes.get("/dashboard", DashboardController.getAllEvents);
 routes.get("/dashboard/:sport", DashboardController.getAllEvents);
 routes.get("/event/:eventId", DashboardController.getEventById);
+// Get the user events
+routes.get("/user/events", DashboardController.getEventsByUserId );
 
 //  .:EVENTS:.
 routes.post("/event", upload.single("thumbnail"), EventController.createEvent);
@@ -45,18 +47,4 @@ routes.post('/user/register', UserController.createUser);
 routes.get('/user/:userId', UserController.getUserById);
 
 module.exports = routes
-/*LINE 21: -->It will grab the file from the frontentd
-Will create a folder called files and save the image
-It will pass the thumbnail property to the event controller
-Second param says ok, look for a key called thumbnail part of the req.body
-At the end req will have something called req.file
-That is an object with things like
-fieldname: 'thumbnail',
-originalname: 'josue.jpg',
-encoding: '7bit',
-mimetype: 'image/jpeg',
-destination: 'C:\\Users\\Miguel\\Desktop\\MERN\\FitnessClub\\files',
-filename: 'josue-1601602132302.jpg',
-path: 'C:\\Users\\Miguel\\Desktop\\MERN\\FitnessClub\\files\\josue-1601602132302.jpg',
-size: 42673
-Finally pass to the controller s */
+

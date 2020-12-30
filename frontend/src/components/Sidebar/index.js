@@ -13,8 +13,8 @@ const Sidebar = ({ isOpen, toggle }) => {
       <div className="sidebar__options">
         <LinkS to="about" onClick={toggle}>About Us</LinkS>
         <LinkS to="features" onClick={toggle}>Features</LinkS>
-        <LinkR to="/login" onCLick={toggle}>Log In</LinkR>
-        <LinkR to="/register" onCLick={toggle}>Register</LinkR>
+        <LinkR to="/login" onClick={toggle}>Log In</LinkR>
+        <LinkR to="/register" onClick={toggle}>Register</LinkR>
 
       </div>
     </aside>

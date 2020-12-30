@@ -30,7 +30,21 @@ module.exports = {
         return res.json(event)
       }
     }catch(e){
-      return res.status(400).json({message : "EventId doesn't exist!"})
+      return res.status(200).json({message : "EventId doesn't exist!"})
+    }
+
+  },
+  async getEventsByUserId(req,res){
+    const { user } = req.headers;
+
+    try{
+      //Find the event by its ID in mongo
+      const userEvents = await Event.find({user});
+      if(userEvents){
+        return res.json(userEvents);
+      }
+    }catch(e){
+      return res.status(200).json({message : `User -> ${user_id} does not have any event`});
     }
 
   },
