@@ -8,8 +8,8 @@ import {useStateValue} from '../../services/StateProvider';
 import "./EventInfo.css";
 import Sidebar from "../../components/Sidebar";
 
-const EventInfo = () => {
-  const [{isSidebarOpen},dispatch] = useStateValue();
+const EventInfo = ({history}) => {
+  const [{user,isSidebarOpen},dispatch] = useStateValue();
   const [event, setEvent] = useState({});
   useEffect(() => {
     getEvent();
@@ -19,6 +19,14 @@ const EventInfo = () => {
     const response = await api.get(url);
     setEvent(response.data);
   };
+
+  const handleSubscribeEvent = ()=>{
+    if(!user){
+      console.log("USer doesn't exists");
+      return history.push('/login');
+    }
+  }
+
   useEffect(() => {
     scroller.scrollTo('event',{
       duration : 1000,
@@ -44,7 +52,7 @@ const EventInfo = () => {
                 <strong>$ {event.price}</strong>
                 <span>{event.sport}</span>
               </p>
-              <button className="btn primary">Subscribe</button>
+              <button className="btn primary" onClick={handleSubscribeEvent}>Subscribe</button>
             </div>
           </div>
         )}
