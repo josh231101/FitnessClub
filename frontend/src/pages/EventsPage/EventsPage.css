@@ -1,4 +1,4 @@
-.events {
+.new-event {
   height: 100vh;
   background-image: -webkit-linear-gradient(
     65deg,
@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
 }
-.events__section {
+.new-event__section {
   padding: 24px 44px;
   background-color: white;
   box-shadow: 20px 20px 16px 0 rgba(0, 0, 0, 0.2);
@@ -37,10 +37,10 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  gap: 32px;
 }
 .create-event__left {
   float: 0.5;
-  margin-right: 48px;
 }
 .create-event__right {
   flex: 0.5;
@@ -54,4 +54,18 @@
 }
 .create-event__input {
   display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .new-event__section {
+    padding: 16px 24px;
+  }
+  .create-event {
+    flex-direction: column;
+  }
+}
+@media screen and (max-height: 500px) {
+  .new-event {
+    height: 800px;
+  }
 }

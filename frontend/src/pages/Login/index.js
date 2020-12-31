@@ -47,6 +47,7 @@ const Login = ({ history }) => {
     <>
       <Sidebar isOpen={isSidebarOpen} toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
       <Navbar toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
+      <HeroSection/>
       <section className="container registration">
         <h2>Login</h2>
         <p>
