@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import HeroSection from "../../components/HeroSection";
 import api from "../../services/api";
 import {useStateValue} from '../../services/StateProvider';
 import Footer from "../../components/Footer";
+import { Link as LinkR} from "react-router-dom";
 
 const Register = ({ history }) => {
   const [,dispatch] = useStateValue();
@@ -34,13 +35,16 @@ const Register = ({ history }) => {
         type : 'SET_USER',
         user : userId
       });
-      history.push("/dashboard");
+      history.push('/dashboard');
     } else {
       const { message } = response.data;
       alert(message);
     }
   };
-
+  useEffect(()=>{
+    const registrationSection = document.querySelector(".registration");
+    registrationSection.scrollIntoView({behavior : 'smooth'});
+  },[]);
   return (
     <>
       <Navbar />
@@ -87,9 +91,9 @@ const Register = ({ history }) => {
             />
           </div>
           <button className="btn primary">Submit</button>
-          <button className="btn secondary" onClick={() => history.push("/")}>
+          <LinkR className="btn secondary"  to="/login">
             Login Instead?
-          </button>
+          </LinkR>
         </form>
       </section>
       <Footer />

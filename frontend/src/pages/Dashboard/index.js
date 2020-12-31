@@ -11,6 +11,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     getEvents();
+    const eventSection = document.querySelector("#events");
+    console.log(eventSection);
+    eventSection.scrollIntoView();
   }, []);
   const getEvents = async (filter) => {
     const url = filter ? `/dashboard/${filter}` : "/dashboard";

@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, ImageCard, CardDescription } from "./EventElements";
-import { Link } from "react-router-dom";
 import {useStateValue}  from '../../services/StateProvider';
 import {useHistory} from 'react-router-dom';
 import api from '../../services/api.js';
@@ -9,10 +8,15 @@ const Event = ({ thumbnail_url, title, description, price, sport,id, user}) =>{
   const stateValue = useStateValue();
   const history = useHistory();
 
-  const handleDelete = async() =>{
-    const response = await api.delete(`/event/${id}`)
-    alert("Event deleted successfully");
-    history.go('/dashboard')
+  const handleDelete = () =>{
+    try {
+      api.delete(`/event/${id}`).then(()=>{
+        alert("Event deleted successfully");
+        history.go('/dashboard');
+      });
+    } catch (error) {
+      alert("Error when deleting the event");
+    }
   }
   const pushToEventPage = (url)=>{
     history.push(url)

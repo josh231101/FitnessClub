@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import api from "../../services/api";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -27,13 +27,16 @@ const Login = ({ history }) => {
         type :'SET_USER',
         user : userId
       })
-      history.push("/dashboard");
+      history.push('/dashboard');
     } else {
       const { message } = response.data;
       alert(message);
     }
   };
-
+  useEffect(() => {
+    const registrationSection = document.querySelector(".registration");
+    registrationSection.scrollIntoView({behavior : 'smooth'});
+  }, [])
   return (
     <>
       <Navbar />
