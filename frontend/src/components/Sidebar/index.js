@@ -6,10 +6,15 @@ import {useStateValue} from '../../services/StateProvider';
 import "./Sidebar.css";
 
 const Sidebar = ({ isOpen, toggle,isHome }) => {
-  const [{user}] = useStateValue();
+  const [{user},dispatch] = useStateValue();
   console.log(user);
   const logOutUser = () =>{
-    console.log("LOGGIN OUT!");
+    window.localStorage.clear();
+    dispatch({
+      type :'SET_USER',
+      user : null
+    });
+    toggle();
   }
   const homeLinks = () =>{
     return (
