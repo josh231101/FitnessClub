@@ -62,7 +62,7 @@ const Home = () => {
         <div className="callto">
           <section className="container callto__wrapper">
             <h2>Ready to get fit?</h2>
-            <LinkR to="/dashboard" className="btn secondary">
+            <LinkR to="/dashboard/" className="btn secondary">
               Our Events!
             </LinkR>
           </section>

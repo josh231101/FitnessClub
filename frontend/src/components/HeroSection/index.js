@@ -26,7 +26,7 @@ const HeroSection = () => {
             New events every week! Challenge yourself, you mind, your family and
             friends. Get to know us in the button below
           </p>
-          <LinkR to="/dashboard" onClick={moveToEvents} className="btn primary">
+          <LinkR to="/dashboard/#events"  className="btn primary">
             Events <MdArrowForward />
           </LinkR>
         </div>

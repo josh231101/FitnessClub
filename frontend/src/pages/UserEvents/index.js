@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 import { Link as LinkR} from 'react-router-dom';
 import api from '../../services/api';
 import {useStateValue} from '../../services/StateProvider';
+import {scroller} from 'react-scroll';
 import './UserEvents.css';
 
 const UserEvents = ({history}) => {
@@ -17,8 +18,6 @@ const UserEvents = ({history}) => {
         const response = await api.get(URL,{headers : {user}});
         const isNotEmpty = response.data.length;
         if(isNotEmpty){
-            console.log("RESPONSE",response);
-            console.log("RESPONSE DATA",response.data);
             setUserEvents(response.data)
         }else{
             setNoEventsStatus(true)
@@ -36,8 +35,12 @@ const UserEvents = ({history}) => {
         if(user){
             const eventSection = document.querySelector("#events");
             getEvents();
-            console.log(eventSection);
-            eventSection.scrollIntoView();
+            scroller.scrollTo('events',{
+                duration : 1000,
+                smooth : true,
+                offset : -80,
+                exact : "true",
+            });
         }
         else{
             history.push('/login');
@@ -48,7 +51,7 @@ const UserEvents = ({history}) => {
         <>
           <Navbar/>
           <HeroSection/>
-          <section id="events" className="container">
+          <section id="events" className="container m-3">
             <h2>My Events</h2>
             <div className="cards-wrapper">
                 {userEvents.map((event) => (

@@ -34,7 +34,6 @@ const Navbar = ({ toggle ,isHome}) => {
       type :'SET_USER',
       user : null
     });
-    history.push("/");
   }
   const homeLinks = ()=>{
     return (

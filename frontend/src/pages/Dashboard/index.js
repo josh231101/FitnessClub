@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import "./Dashboard.css";
 import HeroSection from "../../components/HeroSection";
+import { scroller } from 'react-scroll';
 
 const Dashboard = () => {
   const [events, setEvents] = useState([]);
@@ -24,7 +25,15 @@ const Dashboard = () => {
   const filterEvents = (query) => {
     getEvents(query);
   };
-
+  
+  useEffect(() => {
+    scroller.scrollTo('events',{
+      duration : 1000,
+      smooth : true,
+      offset : -80,
+      exact : "true",
+    })
+  }, []);
   return (
     <>
       <Navbar />

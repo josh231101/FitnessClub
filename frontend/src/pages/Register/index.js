@@ -4,6 +4,7 @@ import HeroSection from "../../components/HeroSection";
 import api from "../../services/api";
 import {useStateValue} from '../../services/StateProvider';
 import Footer from "../../components/Footer";
+import {scroller} from 'react-scroll';
 import { Link as LinkR} from "react-router-dom";
 
 const Register = ({ history }) => {
@@ -41,10 +42,14 @@ const Register = ({ history }) => {
       alert(message);
     }
   };
-  useEffect(()=>{
-    const registrationSection = document.querySelector(".registration");
-    registrationSection.scrollIntoView({behavior : 'smooth'});
-  },[]);
+  useEffect(() => {
+    scroller.scrollTo('registration',{
+      duration : 1000,
+      smooth : true,
+      offset : -160,
+      exact : "true",
+    })
+  }, []);
   return (
     <>
       <Navbar />

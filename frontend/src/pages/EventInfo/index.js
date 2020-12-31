@@ -3,6 +3,7 @@ import HeroSection from "../../components/HeroSection";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import api from "../../services/api";
+import {scroller} from 'react-scroll';
 import "./EventInfo.css";
 
 const EventInfo = () => {
@@ -15,14 +16,22 @@ const EventInfo = () => {
     const response = await api.get(url);
     setEvent(response.data);
   };
+  useEffect(() => {
+    scroller.scrollTo('event',{
+      duration : 1000,
+      smooth : true,
+      offset : -80,
+      exact : "true",
+    })
+  }, []);
   return (
     <>
       <Navbar />
       <HeroSection />
-      <section className="container">
+      <section id="event" className="container">
         <h2>Event</h2>
         {event && (
-          <div className="event">
+          <div id="event" className="event">
             <img src={event.thumbnail_url} alt="Sport event illustration" />
             <div clas="event__description">
               <h3>{event.title}</h3>
@@ -31,6 +40,7 @@ const EventInfo = () => {
                 <strong>$ {event.price}</strong>
                 <span>{event.sport}</span>
               </p>
+              <button className="btn primary">Subscribe</button>
             </div>
           </div>
         )}

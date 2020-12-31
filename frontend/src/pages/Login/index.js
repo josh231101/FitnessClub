@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import "./Login.css";
 import HeroSection from "../../components/HeroSection";
+import {scroller} from 'react-scroll';
 import {useStateValue} from '../../services/StateProvider';
 
 const Login = ({ history }) => {
@@ -34,9 +35,13 @@ const Login = ({ history }) => {
     }
   };
   useEffect(() => {
-    const registrationSection = document.querySelector(".registration");
-    registrationSection.scrollIntoView({behavior : 'smooth'});
-  }, [])
+    scroller.scrollTo('registration',{
+      duration : 1000,
+      smooth : true,
+      offset : -80,
+      exact : "true",
+    })
+  }, []);
   return (
     <>
       <Navbar />
