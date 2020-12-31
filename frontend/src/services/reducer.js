@@ -1,5 +1,6 @@
 export const initialState = {
     user : window.localStorage.getItem('user'),
+    isSidebarOpen : false,
 }
 
 const reducer = (state,action) =>{
@@ -8,6 +9,11 @@ const reducer = (state,action) =>{
             return {
                 ...state,
                 user : action.user
+            }
+        case 'TOGGLE_SIDEBAR' : 
+            return {
+                ...state,
+                isSidebarOpen : !state.isSidebarOpen,
             }
         default :
             return state;

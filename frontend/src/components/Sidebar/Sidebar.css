@@ -31,12 +31,15 @@
 .sidebar__options {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-rows: repeat(4, 80px);
+  grid-template-rows: repeat(auto-fit, 80px);
+  width: 100%;
+  height: 100%;
+  align-content: center;
   text-align: center;
 }
 
 @media screen and (max-width: 768px) {
   .sidebar__options {
-    grid-template-rows: repeat(4, 60px);
+    grid-template-rows: repeat(auto-fit, 60px);
   }
 }

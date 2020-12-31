@@ -6,9 +6,10 @@ import "./Login.css";
 import HeroSection from "../../components/HeroSection";
 import {scroller} from 'react-scroll';
 import {useStateValue} from '../../services/StateProvider';
+import Sidebar from "../../components/Sidebar";
 
 const Login = ({ history }) => {
-  const [,dispatch] = useStateValue();
+  const [{isSidebarOpen},dispatch] = useStateValue();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -44,8 +45,8 @@ const Login = ({ history }) => {
   }, []);
   return (
     <>
-      <Navbar />
-      <HeroSection />
+      <Sidebar isOpen={isSidebarOpen} toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
+      <Navbar toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
       <section className="container registration">
         <h2>Login</h2>
         <p>

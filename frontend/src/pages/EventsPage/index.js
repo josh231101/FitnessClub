@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import api from "../../services/api";
+import {useStateValue} from '../../services/StateProvider';
 import imgplaceholder from "../../images/image-file.png";
 import "./EventsPage.css";
 

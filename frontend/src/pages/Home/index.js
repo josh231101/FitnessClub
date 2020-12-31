@@ -15,17 +15,15 @@ import ArticleTwo from "../../images/post2.jpg";
 import ArticleThree from "../../images/post3.jpg";
 import Article from "../../components/Article/Article";
 import Sidebar from "../../components/Sidebar";
+import {useStateValue} from '../../services/StateProvider';
 import "./Home.css";
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
+  const [{isSidebarOpen},dispatch] = useStateValue();
   return (
     <>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
-      <Navbar toggle={toggle} isHome={true}/>
+      <Sidebar isOpen={isSidebarOpen} toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})} isHome={true}/>
+      <Navbar toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})} isHome={true}/>
       <HeroSection />
       <main>
         <About />

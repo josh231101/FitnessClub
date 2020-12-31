@@ -6,9 +6,10 @@ import {useStateValue} from '../../services/StateProvider';
 import Footer from "../../components/Footer";
 import {scroller} from 'react-scroll';
 import { Link as LinkR} from "react-router-dom";
+import Sidebar from "../../components/Sidebar";
 
 const Register = ({ history }) => {
-  const [,dispatch] = useStateValue();
+  const [{isSidebarOpen},dispatch] = useStateValue();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -52,7 +53,8 @@ const Register = ({ history }) => {
   }, []);
   return (
     <>
-      <Navbar />
+      <Sidebar isOpen={isSidebarOpen} toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
+      <Navbar toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
       <HeroSection />
       <section className="container registration">
         <h2>Register</h2>

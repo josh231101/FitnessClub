@@ -11,7 +11,6 @@ import "./NavbarElements.css";
 
 const Navbar = ({ toggle ,isHome}) => {
   const [{user},dispatch] = useStateValue();
-  const history = useHistory();
   const [navbarStatus,setNavbarStatus] = useState(true)
   const toggleHome = () => {
     scroll.scrollToTop();

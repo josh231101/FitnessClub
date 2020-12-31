@@ -4,9 +4,12 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import api from "../../services/api";
 import {scroller} from 'react-scroll';
+import {useStateValue} from '../../services/StateProvider';
 import "./EventInfo.css";
+import Sidebar from "../../components/Sidebar";
 
 const EventInfo = () => {
+  const [{isSidebarOpen},dispatch] = useStateValue();
   const [event, setEvent] = useState({});
   useEffect(() => {
     getEvent();
@@ -26,8 +29,9 @@ const EventInfo = () => {
   }, []);
   return (
     <>
-      <Navbar />
-      <HeroSection />
+      <Sidebar isOpen={isSidebarOpen} toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
+      <Navbar toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
+      <HeroSection/>
       <section id="event" className="container">
         <h2>Event</h2>
         {event && (

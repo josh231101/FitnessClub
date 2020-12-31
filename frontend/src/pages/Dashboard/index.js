@@ -6,15 +6,21 @@ import Footer from "../../components/Footer";
 import "./Dashboard.css";
 import HeroSection from "../../components/HeroSection";
 import { scroller } from 'react-scroll';
+import {useStateValue} from '../../services/StateProvider';
+import Sidebar from "../../components/Sidebar";
 
 const Dashboard = () => {
+  const [{isSidebarOpen}, dispatch] = useStateValue();
   const [events, setEvents] = useState([]);
-
+  console.log(isSidebarOpen);
   useEffect(() => {
+    scroller.scrollTo('events',{
+      duration : 1000,
+      smooth : true,
+      offset : -80,
+      exact : "true",
+    })
     getEvents();
-    const eventSection = document.querySelector("#events");
-    console.log(eventSection);
-    eventSection.scrollIntoView();
   }, []);
   const getEvents = async (filter) => {
     const url = filter ? `/dashboard/${filter}` : "/dashboard";
@@ -25,18 +31,10 @@ const Dashboard = () => {
   const filterEvents = (query) => {
     getEvents(query);
   };
-  
-  useEffect(() => {
-    scroller.scrollTo('events',{
-      duration : 1000,
-      smooth : true,
-      offset : -80,
-      exact : "true",
-    })
-  }, []);
   return (
     <>
-      <Navbar />
+      <Sidebar isOpen={isSidebarOpen} toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
+      <Navbar toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
       <HeroSection />
       <section id="events" className="container">
         <h2>Events</h2>

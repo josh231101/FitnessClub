@@ -2,20 +2,49 @@ import React from "react";
 import { FaTimes } from "react-icons/fa";
 import {Link as LinkS} from "react-scroll";
 import {Link as LinkR} from "react-router-dom";
+import {useStateValue} from '../../services/StateProvider';
 import "./Sidebar.css";
 
-const Sidebar = ({ isOpen, toggle }) => {
+const Sidebar = ({ isOpen, toggle,isHome }) => {
+  const [{user}] = useStateValue();
+  console.log(user);
+  const logOutUser = () =>{
+    console.log("LOGGIN OUT!");
+  }
+  const homeLinks = () =>{
+    return (
+      <>
+        <LinkS to="about" onClick={toggle}>About Us</LinkS>
+        <LinkS to="features" onClick={toggle}>Features</LinkS>
+      </> 
+    )
+  }
+  const userLinks = () =>{
+    return (
+      <>
+            <LinkR to="/user/events" onClick={toggle}>My Events</LinkR>
+            <LinkR to="/events" onClick={toggle}>Create Event</LinkR>
+            <LinkR to="/" onClick={toggle}>My subscriptions</LinkR>
+            <LinkR onClick={logOutUser} >Log Out</LinkR>
+      </>
+    )
+  }
+  const newUserLinks = () =>{
+    return (
+      <>
+        <LinkR to="/login" onClick={toggle}>Log In</LinkR>
+        <LinkR to="/register" onClick={toggle}>Register</LinkR>
+      </>
+    )
+  }
   return (
     <aside
       className={`sidebar ${isOpen ? "sidebar--open" : "sidebar--closed"}`}
     >
       <FaTimes className="sidebar__close-btn" onClick={toggle} />
       <div className="sidebar__options">
-        <LinkS to="about" onClick={toggle}>About Us</LinkS>
-        <LinkS to="features" onClick={toggle}>Features</LinkS>
-        <LinkR to="/login" onClick={toggle}>Log In</LinkR>
-        <LinkR to="/register" onClick={toggle}>Register</LinkR>
-
+        {isHome && homeLinks()}
+        {user ? userLinks() : newUserLinks()}
       </div>
     </aside>
   );

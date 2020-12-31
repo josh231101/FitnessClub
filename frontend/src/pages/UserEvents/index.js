@@ -8,9 +8,10 @@ import api from '../../services/api';
 import {useStateValue} from '../../services/StateProvider';
 import {scroller} from 'react-scroll';
 import './UserEvents.css';
+import Sidebar from '../../components/Sidebar';
 
 const UserEvents = ({history}) => {
-    const [{user}] = useStateValue();
+    const [{user,isSidebarOpen},dispatch] = useStateValue();
     const [userEvents,setUserEvents] = useState([]);
     const [noEvents,setNoEventsStatus] = useState(false);
     const URL = '/user/events';
@@ -49,7 +50,8 @@ const UserEvents = ({history}) => {
     }, [user])
     return (
         <>
-          <Navbar/>
+          <Sidebar isOpen={isSidebarOpen} toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
+          <Navbar toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
           <HeroSection/>
           <section id="events" className="container m-3">
             <h2>My Events</h2>
@@ -61,7 +63,6 @@ const UserEvents = ({history}) => {
             {noEvents && setNoEventsMessage()}
           </section>
           <Footer/>
-
         </>
     )
 }
