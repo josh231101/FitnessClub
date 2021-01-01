@@ -29,7 +29,7 @@ const Sidebar = ({ isOpen, toggle,isHome }) => {
       <>
             <LinkR to="/user/events" onClick={toggle}>My Events</LinkR>
             <LinkR to="/events" onClick={toggle}>Create Event</LinkR>
-            <LinkR to="/" onClick={toggle}>My subscriptions</LinkR>
+            <LinkR to="/user/subscriptions" onClick={toggle}>My subscriptions</LinkR>
             <LinkR onClick={logOutUser} >Log Out</LinkR>
       </>
     )
