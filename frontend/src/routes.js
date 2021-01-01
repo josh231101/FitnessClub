@@ -7,6 +7,7 @@ import EventsPage from "./pages/EventsPage";
 import Home from "./pages/Home";
 import EventInfo from "./pages/EventInfo";
 import UserEvents from "./pages/UserEvents";
+import UserSubscriptions from "./pages/UserSubscriptions";
 
 export const Routes = () => {
   return (
@@ -19,6 +20,7 @@ export const Routes = () => {
         <Route path="/event/:id" exact component={EventInfo} />
         <Route path="/events" component={EventsPage} />
         <Route path="/user/events" component={UserEvents} />
+        <Route path="/user/subscriptions" component={UserSubscriptions} />
       </Switch>
     </BrowserRouter>
   );

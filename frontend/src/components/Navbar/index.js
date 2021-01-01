@@ -86,9 +86,9 @@ const Navbar = ({ toggle ,isHome}) => {
         <li className="navbar__link dropdown">
           <button className="btn primary dropbtn">My Account</button>
           <div className="dropdown-content">
-            <LinkR to="/user/events">My Events</LinkR>
             <LinkR to="/events">Create Event</LinkR>
-            <LinkR to="/">My subscriptions</LinkR>
+            <LinkR to="/user/events">My Events</LinkR>
+            <LinkR to="/user/subscriptions">My subscriptions</LinkR>
             <LinkR onClick={logOutUser} >Log Out</LinkR>
           </div>
         </li>

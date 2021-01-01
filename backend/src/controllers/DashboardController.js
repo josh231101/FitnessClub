@@ -48,4 +48,18 @@ module.exports = {
     }
 
   },
+  async getUserSubscriptions(req,res){
+    console.log("ENTERING TO GET USER SUBSCRIBTED EVENTS");
+    const { user } = req.headers;
+    console.log(user);
+    try{
+      //Find the events where the user is subscribed to
+      const userEvents = await Event.find({usersSubscribed : user});
+      if(userEvents){
+        return res.json(userEvents);
+      }
+    }catch(e){
+      return res.status(404).json({message : `User -> ${user_id} does not have any event`});
+    }
+  },
 }

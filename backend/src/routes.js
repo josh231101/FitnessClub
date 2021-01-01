@@ -37,7 +37,7 @@ routes.get("/event/:eventId", DashboardController.getEventById);
 // Get the user events
 routes.get("/user/events", DashboardController.getEventsByUserId );
 // Get the user subscriptions
-//routes.get("/user/subscriptions",DashboardController.getUserSubscriptions);
+routes.get("/user/subscriptions",DashboardController.getUserSubscriptions);
 
 
 //  .:EVENTS:.
