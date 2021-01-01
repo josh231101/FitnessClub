@@ -23,6 +23,7 @@ module.exports = {
       user : user_id,
       //thumbnail is just ex-> josue-124124124.jpg (The name of the pic in the server)
       thumbnail : filename,
+      usersSubscribed : [],
     })
 
     return res.json(event);
@@ -38,5 +39,41 @@ module.exports = {
       return res.status(200).json({message : "We dont have any event with the ID"})
     }
   },
+  async addUserSubscription(req,res){
+    const { event_id } = req.params;
+    const { user } = req.headers;
+    try {
+      const event = await Event.findById(event_id);
+      if(event){
+        event.usersSubscribed =[...event.usersSubscribed,user];
+        await event.save();
+        return res.status(200).json(event)
+      }else{
+        res.status(200).json({message : "The events doesn't exists anymore!"});
+      }
+    } catch (error) {
+      res.status(202).json({message :  `Ops! ${error}!`});
+    }
+
+  }
+  ,
+  async removeUserSubscription(req,res){
+    const { event_id } = req.params;
+    const { user } = req.headers;
+    try {
+      const event = await Event.findById(event_id);
+      if(event){
+        // Return the same array but remove the user whois unsubscribing
+        event.usersSubscribed =[...event.usersSubscribed].filter((userSubs)=> user != userSubs);
+        await event.save();
+        return res.status(200).json(event)
+      }else{
+        res.status(200).json({message : "The events doesn't exists anymore!"});
+      }
+    } catch (error) {
+      res.status(202).json({message :  `Ops! ${error}!`});
+    }
+
+  }
 
 }

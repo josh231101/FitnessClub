@@ -36,9 +36,14 @@ routes.get("/dashboard/:sport", DashboardController.getAllEvents);
 routes.get("/event/:eventId", DashboardController.getEventById);
 // Get the user events
 routes.get("/user/events", DashboardController.getEventsByUserId );
+// Get the user subscriptions
+//routes.get("/user/subscriptions",DashboardController.getUserSubscriptions);
+
 
 //  .:EVENTS:.
 routes.post("/event", upload.single("thumbnail"), EventController.createEvent);
+routes.post("/event/:event_id/subscribe", EventController.addUserSubscription);
+routes.post("/event/:event_id/unsubscribe", EventController.removeUserSubscription);
 routes.delete("/event/:eventId", EventController.delete);
 
 //  .:USER:.

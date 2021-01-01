@@ -10,21 +10,47 @@ import Sidebar from "../../components/Sidebar";
 
 const EventInfo = ({history}) => {
   const [{user,isSidebarOpen},dispatch] = useStateValue();
+  console.log("USER ID!!!!->",user);
   const [event, setEvent] = useState({});
+  const [isSubscribed, setSubscribedStatus] = useState(false);
+  const URL = window.location.pathname;
   useEffect(() => {
     getEvent();
-  }, []);
+    // If at some point the user log outs we change the subscription status to false
+    setSubscribedStatus(false);
+  }, [user]);
   const getEvent = async () => {
-    const url = window.location.pathname;
-    const response = await api.get(url);
-    setEvent(response.data);
+    //URL is -> /event/:eventId wher eventId is the id of the Event when a user clicks it
+    const response = await api.get(URL);
+    const event = response.data || [];
+    console.table(event);
+    setEvent(event);
+    setSubscribedStatus(event.usersSubscribed.includes(user));
   };
 
-  const handleSubscribeEvent = ()=>{
+  const handleSubscribeEvent = async()=>{
     if(!user){
       console.log("USer doesn't exists");
       return history.push('/login');
     }
+    if(isSubscribed){
+      //The user is subscribed! Let's unsubscribe the user
+      // Let's unsubscribe the user from the event on the backend
+      const response = await api.post(`${URL}/unsubscribe`,{},{headers : { user }});
+      response.data ? setSubscribedStatus(false) : alert("Could not unsubscribe, Ops!");
+    }
+    else{
+      // THe user is not subscribed let's add it into the event
+      console.log(user);
+      const response = await api.post(`${URL}/subscribe`,{},{headers : {  user }});
+      if(response){
+        // The user is now subscribed
+        setSubscribedStatus(true)
+      }else{
+        alert("Ops! Something went wrong!")
+      }
+    }
+
   }
 
   useEffect(() => {
@@ -52,7 +78,8 @@ const EventInfo = ({history}) => {
                 <strong>$ {event.price}</strong>
                 <span>{event.sport}</span>
               </p>
-              <button className="btn primary" onClick={handleSubscribeEvent}>Subscribe</button>
+              <button className="btn primary" onClick={handleSubscribeEvent}>{isSubscribed ? "Unsubscribe" : "Subscribe" }</button>
+              
             </div>
           </div>
         )}

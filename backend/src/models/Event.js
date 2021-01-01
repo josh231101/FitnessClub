@@ -16,7 +16,11 @@ const EventSchema = mongoose.Schema({
   user : {
     type : mongoose.Schema.Types.ObjectId,
     ref : "User",
-  }
+  },
+  usersSubscribed : [{
+    type : mongoose.Schema.Types.ObjectId,
+    ref : 'User',
+  }],
 },opts)
 EventSchema.virtual("thumbnail_url").get(function(){
   return `http://localhost:8080/files/${this.thumbnail}`
