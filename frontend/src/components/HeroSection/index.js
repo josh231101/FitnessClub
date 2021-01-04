@@ -2,15 +2,7 @@ import React from "react";
 import "./HeroComponents.css";
 import { MdArrowForward } from "react-icons/md";
 import { Link as LinkR } from "react-router-dom";
-import { scroller as scroll } from "react-scroll";
 const HeroSection = () => {
-  const moveToEvents = () => {
-    scroll.scrollTo("events", {
-      duration: 500,
-      smooth: true,
-      offset : -80,
-    });
-  };
   return (
     <header className="hero">
       <div className="container hero__wrapper">

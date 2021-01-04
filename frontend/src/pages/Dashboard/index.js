@@ -12,20 +12,19 @@ import Sidebar from "../../components/Sidebar";
 const Dashboard = () => {
   const [{isSidebarOpen}, dispatch] = useStateValue();
   const [events, setEvents] = useState([]);
-  console.log(isSidebarOpen);
+
   useEffect(() => {
+    getEvents();
     scroller.scrollTo('events',{
       duration : 1000,
       smooth : true,
       offset : -80,
       exact : "true",
     })
-    getEvents();
   }, []);
   const getEvents = async (filter) => {
     const url = filter ? `/dashboard/${filter}` : "/dashboard";
     const response = await api.get(url);
-    console.log(response.data);
     setEvents(response.data);
   };
   const filterEvents = (query) => {

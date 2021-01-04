@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link as LinkR } from "react-router-dom";
 import Footer from "../../components/Footer";
 import HeroSection from "../../components/HeroSection";

@@ -1,23 +1,29 @@
-import React,{useState,useEffect} from 'react'
-import Footer from '../../components/Footer';
+import React, { useEffect, useState } from 'react';
+import Event from '../../components/Event';
 import HeroSection from '../../components/HeroSection';
-import Navbar from '../../components/Navbar'
-import Sidebar from '../../components/Sidebar'
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { Link as LinkR} from 'react-router-dom';
 import api from '../../services/api';
 import {useStateValue} from '../../services/StateProvider';
-import {Link as LinkR} from 'react-router-dom';
 import {scroller} from 'react-scroll';
-import Event from '../../components/Event';
+import './UserEventsHandler.css';
+import Sidebar from '../../components/Sidebar';
 
-const UserSubscriptions = ({history}) => {
+const UserEventsHandler = ({
+history,
+title,
+URL,
+noEventsMessage,
+noEventsLink,
+noEventsTitleLink,}) => {
+
     const [{user,isSidebarOpen},dispatch] = useStateValue();
     const [userEvents,setUserEvents] = useState([]);
     const [noEvents,setNoEventsStatus] = useState(false);
 
-    const URL = '/user/subscriptions';
     const getEvents = async() =>{
         const response = await api.get(URL,{headers : {user}});
-        console.table(response)
         const isNotEmpty = response.data.length;
         if(isNotEmpty){
             setUserEvents(response.data)
@@ -28,14 +34,13 @@ const UserSubscriptions = ({history}) => {
     const setNoEventsMessage = () => {
         return (
             <div>
-                <h3>You don't have any subscriptions yet, would you like to add one?</h3>
-                <LinkR to="/events" className="btn primary">Create new event</LinkR>
+                <h3>{noEventsMessage}</h3>
+                <LinkR to={noEventsLink} className="btn primary">{noEventsTitleLink}</LinkR>
             </div>
         )
     }
     useEffect(() => {
         if(user){
-            const eventSection = document.querySelector("#events");
             getEvents();
             scroller.scrollTo('events',{
                 duration : 1000,
@@ -48,14 +53,14 @@ const UserSubscriptions = ({history}) => {
             history.push('/login');
         }
     // eslint-disable-next-line    
-    }, [user])
+    }, [URL])
     return (
         <>
           <Sidebar isOpen={isSidebarOpen} toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
           <Navbar toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>
           <HeroSection/>
           <section id="events" className="container m-3">
-            <h2>My Subscriptions</h2>
+            <h2>{title}</h2>
             <div className="cards-wrapper">
                 {userEvents.map((event) => (
                     <Event {...event} />
@@ -68,4 +73,4 @@ const UserSubscriptions = ({history}) => {
     )
 }
 
-export default UserSubscriptions
+export default UserEventsHandler

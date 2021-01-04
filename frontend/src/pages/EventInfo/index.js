@@ -3,34 +3,34 @@ import HeroSection from "../../components/HeroSection";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import api from "../../services/api";
-import {scroller} from 'react-scroll';
 import {useStateValue} from '../../services/StateProvider';
 import "./EventInfo.css";
 import Sidebar from "../../components/Sidebar";
 
 const EventInfo = ({history}) => {
   const [{user,isSidebarOpen},dispatch] = useStateValue();
-  console.log("USER ID!!!!->",user);
   const [event, setEvent] = useState({});
   const [isSubscribed, setSubscribedStatus] = useState(false);
   const URL = window.location.pathname;
-  useEffect(() => {
-    getEvent();
-    // If at some point the user log outs we change the subscription status to false
-    setSubscribedStatus(false);
-  }, [user]);
-  const getEvent = async () => {
+
+  const getEvents = async () => {
     //URL is -> /event/:eventId wher eventId is the id of the Event when a user clicks it
     const response = await api.get(URL);
     const event = response.data || [];
-    console.table(event);
     setEvent(event);
     setSubscribedStatus(event.usersSubscribed.includes(user));
   };
 
+  useEffect(() => {
+    getEvents();
+    // If at some point the user log outs we change the subscription status to false
+    setSubscribedStatus(false);
+    // eslint-disable-next-line
+  },[]);
+
+
   const handleSubscribeEvent = async()=>{
     if(!user){
-      console.log("USer doesn't exists");
       return history.push('/login');
     }
     if(isSubscribed){
@@ -53,14 +53,6 @@ const EventInfo = ({history}) => {
 
   }
 
-  useEffect(() => {
-    scroller.scrollTo('event',{
-      duration : 1000,
-      smooth : true,
-      offset : -80,
-      exact : "true",
-    })
-  }, []);
   return (
     <>
       <Sidebar isOpen={isSidebarOpen} toggle={()=>dispatch({type :'TOGGLE_SIDEBAR'})}/>

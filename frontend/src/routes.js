@@ -6,9 +6,9 @@ import Register from "./pages/Register";
 import EventsPage from "./pages/EventsPage";
 import Home from "./pages/Home";
 import EventInfo from "./pages/EventInfo";
-import UserEvents from "./pages/UserEvents";
-import UserSubscriptions from "./pages/UserSubscriptions";
-
+import { UserSubscriptionsInfo } from "./pages/UserSubscriptions/UserSubscriptionsInfo";
+import { UserEventInfo } from "./pages/UserEvents/UserEventsInfo";
+import UserEventsHandler from './components/UserEventsHandler';
 export const Routes = () => {
   return (
     <BrowserRouter>
@@ -19,8 +19,8 @@ export const Routes = () => {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/event/:id" exact component={EventInfo} />
         <Route path="/events" component={EventsPage} />
-        <Route path="/user/events" component={UserEvents} />
-        <Route path="/user/subscriptions" component={UserSubscriptions} />
+        <Route path="/user/events" render={()=>(<UserEventsHandler {...UserEventInfo}/>)}/>
+        <Route path="/user/subscriptions" render={()=>(<UserEventsHandler {...UserSubscriptionsInfo} />)}/>
       </Switch>
     </BrowserRouter>
   );
