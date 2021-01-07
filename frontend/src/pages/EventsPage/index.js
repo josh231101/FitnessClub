@@ -50,11 +50,11 @@ const EventsPage = ({ history }) => {
     setThumbnail(null);
   };
   return user ? (
-    <div className="new-event">
+    <div role="new-event" className="new-event">
       <section className="new-event__section">
         <h3>Create your own event</h3>
         <form className="create-event" onSubmit={submitHandler}>
-          <div className="create-event__left">
+          <div role="new-event-img-section" className="create-event__left">
             <label>Upload Image:</label>
             <label
               id="thumbnail"
@@ -74,7 +74,7 @@ const EventsPage = ({ history }) => {
               />
             </label>
           </div>
-          <div className="create-event__right">
+          <div role="new-event-inputs" className="create-event__right">
             <label>Title:</label>
             <input
               className="create-event__input"
@@ -154,7 +154,7 @@ const EventsPage = ({ history }) => {
       </section>
     </div>
   ) : (
-    <div className="new-event">
+    <div role="main" className="new-event">
       <section className="new-event__section">
         <h1>You are not Logged In please Log In or Register</h1>
         <button className="btn primary" onClick={() => history.push("/login")}>
