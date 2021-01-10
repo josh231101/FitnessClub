@@ -1,12 +1,13 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
 import {Link as LinkS} from "react-scroll";
-import {Link as LinkR} from "react-router-dom";
+import {Link as LinkR, useHistory} from "react-router-dom";
 import {useStateValue} from '../../services/StateProvider';
 import "./Sidebar.css";
 
 const Sidebar = ({ isOpen, toggle,isHome }) => {
   const [{user},dispatch] = useStateValue();
+  const history = useHistory();
   const logOutUser = () =>{
     window.localStorage.clear();
     dispatch({
@@ -14,6 +15,7 @@ const Sidebar = ({ isOpen, toggle,isHome }) => {
       user : null
     });
     toggle();
+    history.go(0);
   }
   const homeLinks = () =>{
     return (

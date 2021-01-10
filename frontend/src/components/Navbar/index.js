@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from "react";
 import { Link as LinkS } from "react-scroll";
-import { Link as LinkR } from "react-router-dom";
+import { Link as LinkR, useHistory } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { animateScroll as scroll } from "react-scroll";
 import {useStateValue} from "../../services/StateProvider";
@@ -11,6 +11,7 @@ import "./NavbarElements.css";
 const Navbar = ({ toggle ,isHome}) => {
   const [{user},dispatch] = useStateValue();
   const [navbarStatus,setNavbarStatus] = useState(true);
+  const history = useHistory();
   const toggleHome = () => {
     scroll.scrollToTop();
   };
@@ -32,6 +33,7 @@ const Navbar = ({ toggle ,isHome}) => {
       type :'SET_USER',
       user : null
     });
+    history.go(0);
   }
   const homeLinks = ()=>{
     return (

@@ -3,7 +3,7 @@ import Event from '../../components/Event';
 import HeroSection from '../../components/HeroSection';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { Link as LinkR} from 'react-router-dom';
+import { Link as LinkR, useHistory} from 'react-router-dom';
 import api from '../../services/api';
 import {useStateValue} from '../../services/StateProvider';
 import {scroller} from 'react-scroll';
@@ -11,7 +11,6 @@ import './UserEventsHandler.css';
 import Sidebar from '../../components/Sidebar';
 
 const UserEventsHandler = ({
-history,
 title,
 URL,
 noEventsMessage,
@@ -21,7 +20,7 @@ noEventsTitleLink,}) => {
     const [{user,isSidebarOpen},dispatch] = useStateValue();
     const [userEvents,setUserEvents] = useState([]);
     const [noEvents,setNoEventsStatus] = useState(false);
-
+    const history = useHistory();
     const getEvents = async() =>{
         const response = await api.get(URL,{headers : {user}});
         const isNotEmpty = response.data.length;
