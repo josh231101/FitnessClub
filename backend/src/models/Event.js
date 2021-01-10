@@ -23,7 +23,7 @@ const EventSchema = mongoose.Schema({
   }],
 },opts)
 EventSchema.virtual("thumbnail_url").get(function(){
-  return `http://localhost:8080/files/${this.thumbnail}`
+  return this.thumbnail;
 })
 
 module.exports = mongoose.model('Event', EventSchema)//Params : modelname, userschema

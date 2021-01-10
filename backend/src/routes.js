@@ -1,5 +1,6 @@
 const express = require('express');
 const multer = require('multer');
+const uploadToS3 = require('./config/s3Upload');
 const uploadConfig = require('./config/upload');
 
 //Middleware to import the routes and inject.
@@ -13,7 +14,7 @@ const ApprovalController = require("./controllers/ApprovalController");
 const RejectionController = require("./controllers/RejectionController");
 
 //We pass specific config to multer saying ok I want to upload the files this way
-const upload = multer(uploadConfig);
+// USE THIS FOR LOCAL IMPLEMENTATION const upload = multer(uploadConfig);
 
 routes.get("/status", (req,res)=>{
   res.status(200);
@@ -41,7 +42,7 @@ routes.get("/user/subscriptions",DashboardController.getUserSubscriptions);
 
 
 //  .:EVENTS:.
-routes.post("/event", upload.single("thumbnail"), EventController.createEvent);
+routes.post("/event", uploadToS3.single("thumbnail"), EventController.createEvent);
 routes.post("/event/:event_id/subscribe", EventController.addUserSubscription);
 routes.post("/event/:event_id/unsubscribe", EventController.removeUserSubscription);
 routes.delete("/event/:eventId", EventController.delete);
