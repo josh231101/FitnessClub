@@ -25,8 +25,6 @@ const Register = ({ history }) => {
       firstName,
       lastName,
     });
-    console.log(response);
-    console.log(response.data);
     //If the could login, we can get the data,
     const userId = response.data._id || false;
 

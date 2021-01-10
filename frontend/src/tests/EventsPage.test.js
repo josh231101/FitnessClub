@@ -6,7 +6,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 expect.extend(toHaveNoViolations)
  
 it('should demonstrate this matcher`s usage with react', async () => {
-    const dummyDiv = document.createElement("div");
+  const dummyDiv = document.createElement("div");
   render(<EventsPage/>, dummyDiv)
   const results = await axe(dummyDiv)
   expect(results).toHaveNoViolations()
