@@ -41,7 +41,6 @@ const EventInfo = ({history}) => {
     }
     else{
       // THe user is not subscribed let's add it into the event
-      console.log(user);
       const response = await api.post(`${URL}/subscribe`,{},{headers : {  user }});
       if(response){
         // The user is now subscribed

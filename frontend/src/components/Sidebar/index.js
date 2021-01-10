@@ -7,7 +7,6 @@ import "./Sidebar.css";
 
 const Sidebar = ({ isOpen, toggle,isHome }) => {
   const [{user},dispatch] = useStateValue();
-  console.log(user);
   const logOutUser = () =>{
     window.localStorage.clear();
     dispatch({
