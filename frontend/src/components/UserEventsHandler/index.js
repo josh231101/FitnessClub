@@ -27,6 +27,7 @@ noEventsTitleLink,}) => {
         const isNotEmpty = response.data.length;
         if(isNotEmpty){
             setUserEvents(response.data)
+            setNoEventsStatus(false);
         }else{
             setNoEventsStatus(true)
         }
@@ -62,7 +63,7 @@ noEventsTitleLink,}) => {
           <section id="events" className="container m-3">
             <h2>{title}</h2>
             <div className="cards-wrapper">
-                {userEvents.map((event) => (
+                {!noEvents && userEvents.map((event) => (
                     <Event {...event} />
                 ))}
             </div>
