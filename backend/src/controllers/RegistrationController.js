@@ -34,7 +34,6 @@ module.exports = {
 
       return res.status(200).json(registration);
     }catch(e){
-      console.log(e);
       return res.status(400).json({message : "Registration not found"});
     }
   }

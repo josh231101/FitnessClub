@@ -5,8 +5,6 @@ module.exports = {
   async store(req,res){
     try {
       const {email,password} = req.body;
-      console.log(email);
-      console.log(password);
       if(!email || !password){
         //One field is missing
         return res.status(200).json({message : "Required field missing"});
