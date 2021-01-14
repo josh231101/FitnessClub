@@ -30,3 +30,4 @@ app.use(routes);
 app.listen(PORT, () =>{
   console.log(`Listenning on ${PORT}`);
 })
+module.exports = app;

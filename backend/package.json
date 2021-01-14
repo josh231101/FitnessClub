@@ -4,7 +4,8 @@
   "description": "This a MERN app",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "test": "jest --watch"
   },
   "author": "Josue Arreola",
   "license": "ISC",
@@ -14,11 +15,22 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mocha": "^8.2.1",
     "mongoose": "^5.10.7",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
     "nodemon": "^2.0.6",
     "paypal-rest-sdk": "^1.8.1",
     "react-scroll": "^1.8.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "supertest": "^6.0.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }

@@ -16,6 +16,9 @@ const RejectionController = require("./controllers/RejectionController");
 //We pass specific config to multer saying ok I want to upload the files this way
 // USE THIS FOR LOCAL IMPLEMENTATION const upload = multer(uploadConfig);
 
+routes.get("/",(req,res)=>{
+  res.send({status : 200, message : "CONNECTED!"});
+});
 routes.get("/status", (req,res)=>{
   res.status(200);
 });
