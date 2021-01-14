@@ -15,7 +15,7 @@
   top: -100%;
 }
 .sidebar--open {
-  opacity: 100%;
+  opacity: 1;
   top: 0;
 }
 .sidebar__close-btn {

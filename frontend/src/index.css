@@ -78,6 +78,9 @@ input {
   transition: all 0.2s ease-in-out;
   font-weight: 600;
 }
+.btn--animated {
+  animation-delay: 1.2s !important;
+}
 .primary {
   background: var(--global-company-color);
   color: white;
