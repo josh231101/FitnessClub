@@ -6,7 +6,7 @@ const cors = require('cors');//Allows us to make requests from different devices
 const routes = require('./routes')
 const app = express();
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 
 //If we start the server from production
 //if(process.env.NODE_ENV != 'production'){ require('dotenv').config()}
