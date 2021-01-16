@@ -15,7 +15,7 @@ const HeroSection = () => {
             <span>Challenge</span> your limits
           </h3>
           <p class="animate-pop-in">
-            New events every week! Challenge yourself, you mind, your family and
+            New events every week! Challenge yourself, your mind, your family and
             friends. Get to know us in the button below
           </p>
           <LinkR to="/dashboard/#events"  className="btn primary animate-pop-in btn--animated">
