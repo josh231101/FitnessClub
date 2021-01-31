@@ -8,9 +8,11 @@ import HeroSection from "../../components/HeroSection";
 import { scroller } from 'react-scroll';
 import {useStateValue} from '../../services/StateProvider';
 import Sidebar from "../../components/Sidebar";
+import Loading from "../../components/Loading";
 
 const Dashboard = () => {
   const [{isSidebarOpen}, dispatch] = useStateValue();
+  const [hasAPINotResponded,setAPIStatus] = useState(true);
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -26,6 +28,7 @@ const Dashboard = () => {
     const url = filter ? `/dashboard/${filter}` : "/dashboard";
     const response = await api.get(url);
     setEvents(response.data);
+    setAPIStatus(false);
   };
   const filterEvents = (query) => {
     getEvents(query);
@@ -62,8 +65,9 @@ const Dashboard = () => {
             Others
           </option>
         </select>
+        {hasAPINotResponded && <Loading message={"Fetching all the events"} />}
         <div className="cards-wrapper">
-          {events.map((event) => (
+            {events.map((event) => (
             <Event {...event} />
           ))}
         </div>
