@@ -3,6 +3,8 @@ const multer = require('multer');
 const uploadToS3 = require('./config/s3Upload');
 const uploadConfig = require('./config/upload');
 
+const paypal = require('paypal-rest-sdk');
+
 //Middleware to import the routes and inject.
 const routes = express.Router();
 const UserController = require('./controllers/UserController');
@@ -54,6 +56,67 @@ routes.delete("/event/:eventId", EventController.delete);
 routes.post('/user/register', UserController.createUser);
 //app.post('/register', RegisterController.store)
 routes.get('/user/:userId', UserController.getUserById);
+
+// .: DUMMY PAYPAL PAYMENT METHOD TEST :.
+routes.get('/payment',(req,res)=>{
+  // We need to create a payment object
+  let payment = {
+    "intent" : "authorize",
+    "payer" : {
+      "payment_method" : "paypal",
+    },
+    "redirect_urls" : {
+      "return_url" : "http://localhost:8080/success",
+      "cancel_url" : "http://localhost:8080/err",
+    },
+    "transactions":[{
+      "amount":{
+        "total" : 20.00,
+        "currency" : "USD"
+      },
+      "description": "a new dummy payment method",
+    }]
+  }
+
+  // call the create Pay Method
+  createPay(payment)
+    .then( transaction =>{
+      console.log(transaction);
+      const id = transaction.id;
+      const links = transaction.links;
+      let counter = links.length;
+
+      while(counter --){
+        if(links[counter].method == 'REDIRECT'){
+          // redirect to paypal where user approves the transaction
+          return res.redirect(links[counter].href);
+        }
+      }
+
+    }).catch( err =>{
+      console.log(err);
+      res.redirect('/err');
+    });
+});
+
+// success page 
+routes.get('/success' , (req ,res ) => {
+  console.log(req.query); 
+  res.json({message : "payment was success"}); 
+});
+
+// error page 
+routes.get('/err' , (req , res) => {
+  console.log(req.query); 
+  res.json({message : "there was an error with the payment"}); 
+});
+
+// helper functions 
+const createPay = ( payment ) => {
+  return new Promise( ( resolve , reject ) => {
+    paypal.payment.create(payment,((err,payment)=> err ? reject(err) : resolve(payment)));
+  });
+}	
 
 module.exports = routes
 
