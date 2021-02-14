@@ -9,6 +9,7 @@ import {useStateValue} from '../../services/StateProvider';
 import {scroller} from 'react-scroll';
 import './UserEventsHandler.css';
 import Sidebar from '../../components/Sidebar';
+import Payment from '../Payment';
 
 const UserEventsHandler = ({
 title,
@@ -21,6 +22,8 @@ noEventsTitleLink,}) => {
     const [userEvents,setUserEvents] = useState([]);
     const [noEvents,setNoEventsStatus] = useState(false);
     const history = useHistory();
+    const lastItemFromRoute = URL.substring(URL.lastIndexOf('/') + 1);
+    const matchingRoute = "subscriptions";
     const getEvents = async() =>{
         const response = await api.get(URL,{headers : {user}});
         const isNotEmpty = response.data.length;
@@ -67,6 +70,7 @@ noEventsTitleLink,}) => {
                 ))}
             </div>
             {noEvents && setNoEventsMessage()}
+            {(!noEvents && lastItemFromRoute === matchingRoute) && <Payment/>}
           </section>
           <Footer/>
         </>
