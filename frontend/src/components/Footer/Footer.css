@@ -35,6 +35,9 @@ footer {
 .footer-wrapper__item h4 {
   margin-top: 0;
 }
+.footer-wrapper__item  > a {
+  margin-top: 8px;
+}
 .footer-wrapper__item p {
   font-size: 1rem;
   font-weight: 500;

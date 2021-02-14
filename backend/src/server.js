@@ -1,12 +1,22 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const path = require("path")
+const path = require("path");
 const cors = require('cors');//Allows us to make requests from different devices
-const routes = require('./routes')
+const routes = require('./routes');
 const app = express();
 
-const PORT = process.env.PORT || 8000;
+/**PAYPAL INTEGRATION */
+const paypal = require('paypal-rest-sdk');
+
+const PORT = 8080//process.env.PORT || 8000;
+
+/*CONFIGURE PAYPAL CREDENTIALS */
+paypal.configure({
+  'mode':'sandbox', // sandbox or live
+  'client_id' : process.env.CLIENT_ID,
+  'client_secret' : process.env.CLIENT_SECRET,
+});
 
 //If we start the server from production
 //if(process.env.NODE_ENV != 'production'){ require('dotenv').config()}
