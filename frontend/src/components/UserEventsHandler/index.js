@@ -37,7 +37,7 @@ noEventsTitleLink,}) => {
             setNoEventsStatus(true)
         }
     }
-    const getEventsPrice = events => events.reduce((acc=1,curr)=> acc+curr.price);
+    const getEventsPrice = events => events.reduce((acc=1,curr)=> acc.price+curr.price);
     const setNoEventsMessage = () => {
         return (
             <div>
