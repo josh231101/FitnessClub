@@ -31,13 +31,23 @@ noEventsTitleLink,}) => {
         if(isNotEmpty){
             setUserEvents(response.data);
             console.log(response.data);
-            setPaymentValue(getEventsPrice(response.data));
+            const fetchedEvents = [...response.data];
+            console.log("++ GETTING EVENTS PRICE");
+            setPaymentValue(getEventsPrice(fetchedEvents));
+            console.log("++paymentvalue",paymentValue);
             setNoEventsStatus(false);
         }else{
             setNoEventsStatus(true)
         }
     }
-    const getEventsPrice = events => events.reduce((acc=1,curr)=> acc.price+curr.price);
+    const getEventsPrice = events => {
+        if(events.length == 1) { return events[0].price}
+        let acc = 0;
+        for(let i = 0;i<events.length;i++){
+            acc += events[i].price;
+        }
+        return acc;
+    };
     const setNoEventsMessage = () => {
         return (
             <div>
@@ -74,10 +84,10 @@ noEventsTitleLink,}) => {
                         
                         <div className="cards-wrapper">
                             {!noEvents && userEvents.map((event) => (
-                                <Event {...event} />
+                                <Event key={event.id} {...event} />
                             ))}
                         </div>
-                        <Payment paymentValue={paymentValue}/>
+                        <Payment paymentValue={paymentValue} />
                     </div>
                 ):
                 (
