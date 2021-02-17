@@ -41,7 +41,7 @@ noEventsTitleLink,}) => {
         }
     }
     const getEventsPrice = events => {
-        if(events.length == 1) { return events[0].price}
+        if(events.length === 1) { return events[0].price}
         let acc = 0;
         for(let i = 0;i<events.length;i++){
             acc += events[i].price;

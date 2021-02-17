@@ -1,7 +1,6 @@
-import React,{useState} from 'react';
+import React from 'react';
 import './Payment.css';
 import Paypal from '../Paypal';
-import { useEffect } from 'react';
 const Payment = ({paymentValue}) => {
     return (
         <section className="payment">
