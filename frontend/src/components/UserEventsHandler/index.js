@@ -20,6 +20,7 @@ noEventsTitleLink,}) => {
 
     const [{user,isSidebarOpen},dispatch] = useStateValue();
     const [userEvents,setUserEvents] = useState([]);
+    const [paymentValue,setPaymentValue] = useState(0);
     const [noEvents,setNoEventsStatus] = useState(false);
     const history = useHistory();
     const lastItemFromRoute = URL.substring(URL.lastIndexOf('/') + 1);
@@ -28,12 +29,15 @@ noEventsTitleLink,}) => {
         const response = await api.get(URL,{headers : {user}});
         const isNotEmpty = response.data.length;
         if(isNotEmpty){
-            setUserEvents(response.data)
+            setUserEvents(response.data);
+            console.log(response.data);
+            setPaymentValue(getEventsPrice(response.data));
             setNoEventsStatus(false);
         }else{
             setNoEventsStatus(true)
         }
     }
+    const getEventsPrice = events => events.reduce((acc=1,curr)=> acc+curr.price);
     const setNoEventsMessage = () => {
         return (
             <div>
@@ -64,13 +68,27 @@ noEventsTitleLink,}) => {
           <HeroSection/>
           <section id="events" className="container m-3">
             <h2>{title}</h2>
-            <div className="cards-wrapper">
-                {!noEvents && userEvents.map((event) => (
-                    <Event {...event} />
-                ))}
-            </div>
+            {(!noEvents && lastItemFromRoute === matchingRoute) ? 
+                (   
+                    <div className="events__payment-wrapper">{/**WE ARE SHOWING THE SUBSCIRPTIONS AND AN ASIDE WITH THE PAYMENT METHOD */}
+                        
+                        <div className="cards-wrapper">
+                            {!noEvents && userEvents.map((event) => (
+                                <Event {...event} />
+                            ))}
+                        </div>
+                        <Payment paymentValue={paymentValue}/>
+                    </div>
+                ):
+                (
+                    <div className="cards-wrapper">
+                        {!noEvents && userEvents.map((event) => (
+                            <Event {...event} />
+                        ))}
+                    </div>
+                )
+            }
             {noEvents && setNoEventsMessage()}
-            {(!noEvents && lastItemFromRoute === matchingRoute) && <Payment/>}
           </section>
           <Footer/>
         </>

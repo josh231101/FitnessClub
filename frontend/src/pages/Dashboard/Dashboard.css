@@ -12,6 +12,7 @@
   border: none;
 }
 .cards-wrapper {
+  width: 100%;
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(auto-fill, 18rem);
