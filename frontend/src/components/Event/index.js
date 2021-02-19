@@ -8,7 +8,8 @@ const Event = ({ thumbnail_url, title, description, price, sport,id, user}) =>{
   const stateValue = useStateValue();
   const history = useHistory();
 
-  const handleDelete = () =>{
+  const handleDelete = (e) =>{
+    e.stopPropagation();
     try {
       api.delete(`/event/${id}`).then(()=>{
         alert("Event deleted successfully");
@@ -22,10 +23,10 @@ const Event = ({ thumbnail_url, title, description, price, sport,id, user}) =>{
     history.push(url)
   }
   return (
-    <Card >
+    <Card onClick={()=>{pushToEventPage(`/event/${id}`)}}>
     {user === stateValue[0].user && (<button className="btn primary card__delete-btn" onClick={handleDelete}>Delete</button>)}
       <ImageCard src={thumbnail_url} />
-      <CardDescription onClick={()=>{pushToEventPage(`/event/${id}`)}}>
+      <CardDescription >
         <h3 className="card__title">{title}</h3>
         <p className="card__description">
           {description.split("", 50).join("")}...
