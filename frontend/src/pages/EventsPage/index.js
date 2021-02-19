@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import api from "../../services/api";
 import imgplaceholder from "../../images/image-file.png";
 import "./EventsPage.css";
+import LoadingComponent from "../../components/Loading";
 
 const EventsPage = ({ history }) => {
   const [user] = useState(localStorage.getItem("user"));
@@ -12,6 +13,8 @@ const EventsPage = ({ history }) => {
   const [sport, setSport] = useState("running");
   const [date, setDate] = useState("");
   const [wasCreated, isCreated] = useState(false);
+  const [hasApiResponded, setAPIResponseStatus] = useState(false);
+  const [success,setSuccessStatus] = useState(true);
 
   //Every time the thumnail changes I want to refresh the property. Memo is a Hook
   const preview = useMemo(() => {
@@ -20,6 +23,7 @@ const EventsPage = ({ history }) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    isCreated(true);
     const user_id = localStorage.getItem("user");
     const eventData = new FormData();
 
@@ -34,8 +38,8 @@ const EventsPage = ({ history }) => {
     try {
       await api.post("/event", eventData, { headers: { user_id } });
       clear();
-      alert("Event Created Successfully");
-      isCreated(true);
+      setAPIResponseStatus(true);
+      setSuccessStatus(true);
     } catch (e) {
       alert(e);
     }
@@ -49,6 +53,20 @@ const EventsPage = ({ history }) => {
     setDate("");
     setThumbnail(null);
   };
+  const createEventBtn = () => {
+    return (
+      <button className="btn primary" type="Submit">
+        Create Event
+      </button>
+    )
+  }
+  const successEventCreation = () =>{
+    createEventBtn();
+    setTimeout(() => {
+      setSuccessStatus(false);
+    }, 2000);
+    return success && (<p>Event Created Successfully</p>)
+  }
   return user ? (
     <div aria-labelledby="new-event" className="new-event">
       <section className="new-event__section">
@@ -136,9 +154,9 @@ const EventsPage = ({ history }) => {
                 Other
               </option>
             </select>
-            <button className="btn primary" type="Submit">
-              Create Event
-            </button>
+            {wasCreated ? (hasApiResponded ? successEventCreation() : <LoadingComponent message="Uploading"/>)
+            : createEventBtn()}
+            
           </div>
         </form>
         {wasCreated && (
