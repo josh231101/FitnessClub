@@ -1,6 +1,7 @@
 # :house: FITNESS CLUB :muscle:
-  ![Badge for GitHub](https://img.shields.io/github/languages/top/jordanwhunter/readme-generator?style=flat&logo=appveyor) 
-  
+  ![Badge for GitHub](https://img.shields.io/github/languages/top/jordanwhunter/readme-generator?style=flat&logo=appveyor) <br/>
+![FITNESS](https://user-images.githubusercontent.com/47585614/110193559-3afeb880-7dfa-11eb-8fa8-b942f7515f4d.gif)
+
   
   ## Description 
 
@@ -9,10 +10,13 @@ Description: Sports Web App for creating sports events.
 
   ## Table of Contents
   * [Features](#features)
-  * [Fronted](#fronted)
+  * [Frontend](#frontend)
   * [Backend](#backend)
   * [Tests](#tests)
   * [License](#license)
+  
+  ## Gallery
+  <img src="https://i.ibb.co/Z6XXM2w/FItness-Club.png" width="18%"></img> <img src="https://i.ibb.co/0YBz09w/Screenshot-from-2021-03-05-21-35-05.png" width="18%"></img>  <img src="https://i.ibb.co/dpZxrn7/Screenshot-from-2021-03-05-21-34-21.png" width="18%"></img> <img src="https://i.ibb.co/RpDShY3/Screenshot-from-2021-03-05-21-35-18.png" width="18%"></img> <img src="https://i.ibb.co/f2HbSSY/Screenshot-from-2021-03-05-21-33-35.png" width="18%"></img> 
   
   ## Features
   
